@@ -1,0 +1,146 @@
+---
+title: "Gmail connector: manage your inbox with Bridge"
+description: "Search, read, compose, send, and organize your Gmail — reply to threads, manage labels, and clean your inbox using plain English in Bridge."
+---
+
+The Gmail connector gives Bridge full read and write access to your inbox. You can search for specific emails, read full threads, compose new messages, reply to conversations, create drafts for review, manage labels, and move messages to trash — without opening Gmail.
+
+## How to connect
+
+<Steps>
+  <Step title="Open the Connectors page">
+    Go to [bridge-mcp-967806289134.us-central1.run.app/connectors](https://bridge-mcp-967806289134.us-central1.run.app/connectors) in your dashboard.
+  </Step>
+  <Step title="Connect Gmail">
+    Click **Connect** next to Gmail.
+  </Step>
+  <Step title="Authorize with Google">
+    You'll be redirected to Google's OAuth consent screen. Sign in with the Google account you want to use and grant Bridge the requested permissions.
+  </Step>
+  <Step title="Done">
+    Bridge connects to that Gmail account. You can now use it from the Command Center.
+  </Step>
+</Steps>
+
+<Note>
+  Gmail is a separate connector from Google Calendar and Google Drive. Connecting one does not connect the others — each uses its own OAuth authorization.
+</Note>
+
+## What you can do
+
+### Search and read email
+
+Find emails using any criteria — sender, subject, date, label, attachment, or any combination.
+
+```
+Find emails from john@acme.com this week
+```
+```
+Search for emails with invoices attached
+```
+```
+Show me all unread emails in my inbox
+```
+```
+Find the latest email from Sarah about the contract
+```
+
+Read a full email thread to see the entire conversation in order.
+
+```
+Show me the full thread for that contract email
+```
+
+### Compose and send
+
+Write and send a new email, or ask Bridge to draft one for you to review first.
+
+```
+Send an email to the team about Friday's meeting — keep it brief
+```
+```
+Draft an email to hello@vendor.com asking about their pricing
+```
+
+Bridge will always show you the full draft — recipient, subject, and body — and ask for your confirmation before sending.
+
+### Reply to email
+
+Reply to any email in your inbox. Bridge threads the reply correctly so it appears in the same conversation.
+
+```
+Draft a reply to the latest email from Sarah saying I'll have the report ready by Thursday
+```
+```
+Reply to the Acme contract email and ask for a revised timeline
+```
+
+### Create and send drafts
+
+Save a draft to your Gmail Drafts folder without sending, then send it when you're ready.
+
+```
+Create a draft reply to the investor update email
+```
+```
+Send the draft I just created
+```
+
+### Manage labels and organize
+
+Archive messages, mark as read or unread, star important emails, move to trash, and create or update custom labels.
+
+```
+Mark all newsletters as read
+```
+```
+Archive everything older than 30 days in my Promotions tab
+```
+```
+Create a label called "Follow-up" and apply it to the Acme emails
+```
+```
+Trash the email from noreply@spam.com
+```
+
+### Download attachments
+
+Retrieve file attachments from any email. Images render inline in the Command Center; other files are returned as downloadable data.
+
+```
+Get the PDF attachment from the invoice email
+```
+
+## What Bridge covers
+
+<AccordionGroup>
+  <Accordion title="Search">
+    Full Gmail query syntax: `from:`, `to:`, `subject:`, `is:unread`, `has:attachment`, `label:`, `before:`, `after:`, `newer_than:`, and more. Paginated results for large inboxes.
+  </Accordion>
+  <Accordion title="Reading email">
+    Get full message content including body, headers, and attachment list. Read entire threads chronologically.
+  </Accordion>
+  <Accordion title="Sending email">
+    Send new emails with plain text or HTML body. CC and BCC supported. Reply to existing threads with correct threading headers.
+  </Accordion>
+  <Accordion title="Drafts">
+    Create drafts (including reply drafts) saved to your Drafts folder. Send a draft when you're ready.
+  </Accordion>
+  <Accordion title="Label management">
+    Archive, star, mark read/unread, move between labels. Create, update, and delete custom labels. Batch operations on up to 1,000 messages at once.
+  </Accordion>
+  <Accordion title="Trash">
+    Move messages to Trash (recoverable within 30 days). Batch trash multiple messages in a single command.
+  </Accordion>
+  <Accordion title="Attachments">
+    Download attachments from any message. Images display inline; other formats return as base64 data with metadata.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Bridge moves messages to **Trash**, not permanent delete. Trashed messages are recoverable from your Gmail Trash folder for 30 days.
+</Note>
+
+<Tip>
+  When you ask Bridge to send an email, it will always show you a preview first and ask for confirmation. Sending is irreversible, so Bridge never skips this step.
+</Tip>

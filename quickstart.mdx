@@ -1,0 +1,78 @@
+---
+title: "Quickstart: run your first Bridge command"
+description: "Sign up, connect your first business tool via OAuth, and run your first plain-English command in the Bridge Command Center — all in under five minutes."
+---
+
+The fastest way to understand Bridge is to use it. This guide walks you from a fresh account to your first working command. By the end, you'll have at least one tool connected and a result in hand — no configuration files, no workflow builders, no code.
+
+<Steps>
+  <Step title="Sign up or log in">
+    Go to [bridge-mcp-967806289134.us-central1.run.app](https://bridge-mcp-967806289134.us-central1.run.app) and create your account. Bridge uses secure authentication — no separate password to manage.
+
+    Once you're in, you'll land on the **Command Center**: a chat interface where you'll spend most of your time.
+  </Step>
+
+  <Step title="Connect your first tool">
+    Before you can run commands, you need at least one Connector. Connectors are the integrations that give Bridge access to your business tools.
+
+    1. Click **Connectors** in the sidebar (or navigate to **Settings → Connectors**).
+    2. Find **ClickUp** (or any tool you use) and click **Connect**.
+    3. Authorize Bridge via the OAuth flow — you'll be redirected to the tool and back in seconds.
+
+    Once connected, Bridge can read and write to that tool on your behalf.
+
+    <Note>
+      The Free plan supports up to 3 connected tools. Individual, Team, and Agency plans have no connector limit. See [plans](/account/plans) for details.
+    </Note>
+  </Step>
+
+  <Step title="Type a command in the Command Center">
+    Return to the Command Center and type what you want to do in plain English. You don't need to learn any syntax — just describe the outcome.
+
+    Try one of these to start:
+
+    ```text
+    Create a task called "Website redesign" in ClickUp
+    ```
+
+    ```text
+    Get my tasks due this week
+    ```
+
+    ```text
+    Show me all overdue tasks across my ClickUp lists
+    ```
+
+    As Bridge works, the **Progress Panel** slides in on the right and shows you each step in real time: which tool it's calling, what data it's reading, and what action it's taking.
+  </Step>
+
+  <Step title="See the result">
+    When Bridge finishes, the result appears in the chat. For a task-creation command, you'll see a confirmation with a link to the new task. For a lookup command, you'll see a formatted summary of what it found.
+
+    If the result involves multiple steps or tools, Bridge may prompt you to **save it as a Mission** — a one-click shortcut you can reuse later without retyping the command.
+
+    <Tip>
+      If Bridge asks a clarifying question (like "which list should I add this to?"), just answer in the chat. It remembers your answers within the session, so you won't be asked twice for the same context.
+    </Tip>
+  </Step>
+</Steps>
+
+## What to try next
+
+Once you've run your first command, here are a few more things worth exploring:
+
+**Upload a file.** Drag a PDF, Word document, or image (up to 10 MB) into the Command Center chat box. Bridge can read its contents and act on them — for example:
+
+```text
+Turn the action items from this transcript into ClickUp tasks
+```
+
+**Browse the Plays Library.** Plays are pre-built instruction sets for common workflows. Type something like:
+
+```text
+Load the transcript-to-tasks play
+```
+
+**Connect more tools.** The more tools you connect, the more Bridge can do across them in a single command. Head to **Connectors** and add Gmail, Slack, Google Calendar, or any other tool you use.
+
+**Add Bridge to your AI client.** If you use Claude Desktop or Claude.ai, you can add Bridge as an MCP server and run commands directly from your AI. See [Connect your AI](/connect-your-ai).

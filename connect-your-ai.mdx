@@ -1,0 +1,129 @@
+---
+title: "Connect Claude or Gemini to Bridge using MCP"
+description: "Add Bridge as an MCP server to Claude Desktop or Claude.ai and control your connected business tools directly from your AI client using plain English."
+---
+
+Bridge exposes a [Model Context Protocol](https://modelcontextprotocol.io) (MCP) endpoint that any compatible AI client can connect to. Once connected, your AI — Claude, Gemini, or any MCP-compatible model — gains access to all the tools you've connected in your Bridge account. You can ask it to create tasks, look up emails, post to Slack, and more, without leaving your AI client.
+
+<Info>
+  Your tool credentials (ClickUp, Gmail, Slack, etc.) are stored in your Bridge account and authorized via OAuth from the web dashboard. When you connect Bridge to your AI client via MCP, it uses the credentials already on file — you don't need to pass API keys to your AI client manually. Set up your connectors at [bridge-mcp-967806289134.us-central1.run.app](https://bridge-mcp-967806289134.us-central1.run.app) before connecting your AI.
+</Info>
+
+## The MCP endpoint
+
+```
+https://bridge-mcp-967806289134.us-central1.run.app/mcp
+```
+
+Use this URL in any MCP client configuration.
+
+## Connect Claude Desktop
+
+Claude Desktop reads MCP server configuration from a local JSON file.
+
+<Steps>
+  <Step title="Open your Claude Desktop config file">
+    Locate `claude_desktop_config.json` on your machine:
+
+    <CodeGroup>
+      ```text macOS
+      ~/Library/Application Support/Claude/claude_desktop_config.json
+      ```
+
+      ```text Windows
+      %APPDATA%\Claude\claude_desktop_config.json
+      ```
+    </CodeGroup>
+
+    If the file doesn't exist yet, create it.
+  </Step>
+
+  <Step title="Add the Bridge MCP server">
+    Add the following to your config file. If you already have other MCP servers configured, add Bridge inside the existing `mcpServers` object.
+
+    ```json claude_desktop_config.json
+    {
+      "mcpServers": {
+        "bridge": {
+          "url": "https://bridge-mcp-967806289134.us-central1.run.app/mcp"
+        }
+      }
+    }
+    ```
+  </Step>
+
+  <Step title="Restart Claude Desktop">
+    Quit and reopen Claude Desktop. Bridge will appear in the integrations panel as an available tool set.
+  </Step>
+
+  <Step title="Run a command">
+    Start a new conversation in Claude Desktop and ask it to do something using one of your connected tools:
+
+    ```text
+    Create a ClickUp task called "Q3 planning" in my Work list
+    ```
+
+    ```text
+    What emails did I receive from the Acme team this week?
+    ```
+
+    Claude will call Bridge, which will execute the request using the credentials from your Bridge account.
+  </Step>
+</Steps>
+
+## Connect Claude.ai (web)
+
+If you use Claude.ai in your browser, you can add Bridge through the integrations settings without touching any config files.
+
+<Steps>
+  <Step title="Open integrations settings">
+    In Claude.ai, click your profile icon → **Settings** → **Integrations** → **MCP Servers**.
+  </Step>
+
+  <Step title="Add Bridge">
+    Click **Add MCP server** and fill in the form:
+
+    | Field | Value |
+    |---|---|
+    | Name | `Bridge` |
+    | URL | `https://bridge-mcp-967806289134.us-central1.run.app/mcp` |
+
+    Save the integration.
+  </Step>
+
+  <Step title="Enable Bridge in a conversation">
+    Start or open a conversation. Click the tools icon and enable **Bridge** from the list of available integrations.
+  </Step>
+</Steps>
+
+## Example commands to try
+
+Once Bridge is connected to your AI client, try these:
+
+```text
+Get my open ClickUp tasks and summarize what I should focus on today
+```
+
+```text
+Create a task called "Review proposal" due next Friday in my Client Projects list
+```
+
+```text
+Load the transcript-to-tasks play and use this meeting summary: [paste summary]
+```
+
+```text
+What ClickUp task templates do I have available?
+```
+
+<Warning>
+  Your AI client sends requests to Bridge over HTTPS. Bridge then uses your stored OAuth credentials to act on your behalf. Never share your Bridge session or MCP URL with people who shouldn't have access to your connected tools — they would inherit your permissions.
+</Warning>
+
+## Troubleshooting
+
+**Claude says it can't find Bridge or the tool fails silently.** Make sure you've connected at least one tool in your Bridge dashboard before using Bridge from your AI client. Bridge can only act on tools that have been authorized via OAuth.
+
+**The MCP server URL isn't accepted.** Copy the URL exactly — including `https://` and the `/mcp` path. Some clients require the trailing `/mcp` to be explicit.
+
+**Commands succeed in the Command Center but not through Claude.** This usually means the OAuth session for one of your connectors has expired. Go to [bridge-mcp-967806289134.us-central1.run.app](https://bridge-mcp-967806289134.us-central1.run.app), open **Connectors**, and reconnect the affected tool.

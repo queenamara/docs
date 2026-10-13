@@ -1,0 +1,137 @@
+---
+title: "Shopify connector: manage your store data in Bridge"
+description: "Look up orders, browse products, search customers, get store info, and work with draft orders — all from the Bridge Command Center."
+---
+
+The Shopify connector gives Bridge read access to your store's orders, products, customers, and shop information. You can look up today's orders, find unfulfilled shipments, check inventory levels, search for customers, and get full order details including line items, refunds, and return status — without logging into Shopify Admin.
+
+## How to connect
+
+<Steps>
+  <Step title="Open the Connectors page">
+    Go to [bridge-mcp-967806289134.us-central1.run.app/connectors](https://bridge-mcp-967806289134.us-central1.run.app/connectors) in your dashboard.
+  </Step>
+  <Step title="Connect Shopify">
+    Click **Connect** next to Shopify.
+  </Step>
+  <Step title="Enter your API credentials">
+    You'll need a **Shopify Admin API access token** for your store. You can create one in your Shopify Admin under **Settings → Apps and sales channels → Develop apps**. Bridge requires read access to orders, products, and customers.
+  </Step>
+  <Step title="Done">
+    Bridge connects to your store. Your Shopify access token is permanent — you won't need to reauthorize.
+  </Step>
+</Steps>
+
+<Note>
+  Shopify uses a permanent API key rather than OAuth. Your credentials are stored securely and never expire unless you revoke them in Shopify Admin.
+</Note>
+
+## What you can do
+
+### Find orders
+
+Search for orders by status, date range, customer email, fulfillment status, or financial status. View summaries of multiple orders at once, then drill into any single order for full details.
+
+```
+Show me today's orders
+```
+```
+Find all unfulfilled orders from last week
+```
+```
+List all orders that are paid but not shipped
+```
+```
+Search for orders from customer sarah@example.com
+```
+
+### Get full order details
+
+Get everything about a specific order: line items, quantities, prices, shipping address, customer info, refunds, and return status. Reference orders by order number or Shopify ID.
+
+```
+Get details on order #1234
+```
+```
+Show me the full breakdown of order 7102896570646
+```
+```
+What was refunded on order #892?
+```
+
+### Browse products
+
+Search your product catalog by title, vendor, type, or status. Get full product details including all variants, inventory levels, pricing, SKUs, and images.
+
+```
+List products with low inventory
+```
+```
+Search for all active products from vendor "Acme Goods"
+```
+```
+Show me the full details for the Classic Tote product
+```
+```
+What variants does the Summer Hat come in?
+```
+
+### Look up customers
+
+Search your customer list by name, email, or phone. View order history, total spend, and contact details for any customer.
+
+```
+Look up customer john@example.com
+```
+```
+Find all customers who've spent more than $500
+```
+```
+Get the full profile for customer ID 4521687
+```
+
+### Get store info
+
+Retrieve information about your connected Shopify store — name, domain, currency, timezone, and plan.
+
+```
+What's the currency and timezone for my store?
+```
+```
+Show me my store details
+```
+
+### Draft orders
+
+Search and view draft orders, including their line items, custom attributes, and linked invoices.
+
+```
+Show me all open draft orders
+```
+```
+Get the details on draft order #D-124
+```
+
+## What Bridge covers
+
+<AccordionGroup>
+  <Accordion title="Orders">
+    Search orders by status (open, closed, cancelled), financial status (paid, refunded, etc.), and fulfillment status (shipped, unfulfilled, etc.). Filter by date range. Get full order details including line items with custom attributes, refunds with line-item breakdown, returns with reason codes, shipping and billing addresses, customer info, source channel, notes, and tags.
+  </Accordion>
+  <Accordion title="Products">
+    Search products by title, vendor, product type, status, or collection. Get full product details including all variants (price, SKU, inventory quantity, weight, barcode), images, and options.
+  </Accordion>
+  <Accordion title="Customers">
+    Search customers by name, email, or phone. Get full customer profiles including order count, lifetime spend, all saved addresses, tags, and notes.
+  </Accordion>
+  <Accordion title="Draft orders">
+    Search and view draft orders with full line items, custom attributes, customer info, linked completed orders, and invoice URLs.
+  </Accordion>
+  <Accordion title="Shop info">
+    Get store name, contact email, primary domain, Shopify plan, default currency, and timezone.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  You can reference an order by order number (like `#1234` or just `1234`) and Bridge will resolve it automatically — you don't need to know the full Shopify order ID.
+</Tip>

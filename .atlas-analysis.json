@@ -1,0 +1,91 @@
+{
+  "projectType": "saas",
+  "projectName": "Bridge",
+  "projectDescription": "Bridge is a hosted AI integration platform that connects Claude, Gemini, or any MCP-compatible AI directly to your business tools — ClickUp, Gmail, Slack, Google Calendar, Shopify, and more — so you can get work done in plain English.",
+  "theme": "luma",
+  "primaryColor": "#5B5BD6",
+  "lightColor": "#EDEDFC",
+  "darkColor": "#3E3E8F",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "connect-your-ai"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "concepts/command-center",
+              "concepts/connectors",
+              "concepts/missions",
+              "concepts/plays"
+            ]
+          },
+          {
+            "group": "Connectors",
+            "pages": [
+              "connectors/overview",
+              "connectors/clickup",
+              "connectors/gmail",
+              "connectors/google-calendar",
+              "connectors/google-drive",
+              "connectors/slack",
+              "connectors/shopify",
+              "connectors/hubspot"
+            ]
+          },
+          {
+            "group": "Account & Billing",
+            "pages": [
+              "account/organizations",
+              "account/plans",
+              "account/members"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "troubleshooting/faq",
+              "troubleshooting/connector-issues"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Command Center — chat-driven task execution in plain English across all connected tools",
+    "MCP endpoint — connect Claude or Gemini directly to Bridge via the Model Context Protocol",
+    "Plays Library — pre-built instruction sets for common workflows (transcript-to-tasks, client onboarding, standups)",
+    "Missions — save multi-step workflows and replay them with one click",
+    "10+ business tool connectors: ClickUp, Gmail, Google Calendar, Google Drive, Google Docs, Google Sheets, Slack, Shopify, HubSpot, Guru, and more",
+    "Organization & team management with role-based access (owner, admin, member)",
+    "Tiered billing plans: Free, Individual, Team, and Agency"
+  ],
+  "publicApiSurface": [
+    "POST /api/command/stream — stream an AI-powered command execution (SSE)",
+    "POST /api/command/execute — execute a command and receive a JSON response",
+    "GET /api/connectors — list all connectors and their connection status",
+    "POST /api/connectors/:connectorId/credentials — save connector credentials",
+    "DELETE /api/connectors/:connectorId/credentials — remove connector credentials",
+    "GET /api/missions — list saved missions",
+    "POST /api/missions — create a new mission",
+    "POST /api/missions/:id/run — run a saved mission",
+    "GET /api/profile — get the authenticated user's profile",
+    "PATCH /api/profile — update profile fields",
+    "GET /api/org — get organization info",
+    "GET /api/org/members — list organization members",
+    "POST /api/org/members/invite — invite a member to the organization",
+    "GET /api/billing/usage — get current billing usage",
+    "POST /api/billing/portal — open the Stripe billing portal",
+    "/mcp — MCP protocol endpoint for Claude/Gemini integration",
+    "/health — health check endpoint"
+  ]
+}

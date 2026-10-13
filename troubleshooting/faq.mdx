@@ -1,0 +1,109 @@
+---
+title: "Bridge FAQ: answers to the most common questions"
+description: "Answers to common questions about Bridge — AI models, data storage, connectors, tool-call limits, file uploads, billing, Missions, and Plays."
+---
+
+If you're new to Bridge or running into unexpected behavior, this page answers the questions that come up most often. For step-by-step help with connector problems specifically, see [Fix connector connection and auth issues](/troubleshooting/connector-issues).
+
+<AccordionGroup>
+  <Accordion title="What AI models does Bridge support?">
+    Bridge works with Claude (Anthropic), Gemini (Google), and any AI that supports the Model Context Protocol (MCP). To connect your AI client, add Bridge's MCP endpoint:
+
+    ```
+    https://bridge-mcp-967806289134.us-central1.run.app/mcp
+    ```
+
+    For step-by-step setup instructions, see the [Connect your AI](/connect-your-ai) guide.
+  </Accordion>
+
+  <Accordion title="Is my data stored on Bridge's servers?">
+    API keys and OAuth tokens are stored encrypted on Bridge's servers so you don't have to re-enter them every session. Your conversation history is stored in your browser's localStorage and is not persisted server-side beyond what's needed to execute your command.
+
+    <Note>
+      Clearing your browser's localStorage will erase your local conversation history. This does not affect your connected tools or account settings.
+    </Note>
+  </Accordion>
+
+  <Accordion title="How many connectors can I have?">
+    The number of connectors you can connect depends on your plan:
+
+    | Plan | Connectors |
+    |---|---|
+    | **Free** | Up to 3 |
+    | **Individual** | Unlimited |
+    | **Team** | Unlimited |
+    | **Agency** | Unlimited |
+
+    To connect more than 3 tools, upgrade from your [account settings](https://bridge-mcp-967806289134.us-central1.run.app/connectors).
+  </Accordion>
+
+  <Accordion title="What counts as a tool call?">
+    A tool call is each discrete action Bridge takes on a connected tool. Every interaction with a tool counts as one call — for example:
+
+    - Creating a task in ClickUp = 1 tool call
+    - Searching your Gmail inbox = 1 tool call
+    - Reading a connector's data = 1 tool call
+
+    A single plain-English command may trigger multiple tool calls if it requires several steps to complete. You can watch each step in the progress panel inside the Command Center.
+  </Accordion>
+
+  <Accordion title="Can I use Bridge from Claude.ai or Gemini directly?">
+    Yes. Add Bridge as an MCP server in your AI client using this URL:
+
+    ```
+    https://bridge-mcp-967806289134.us-central1.run.app/mcp
+    ```
+
+    Once added, you can issue commands to your connected tools directly from Claude or Gemini without opening the Bridge web app. See the [Connect your AI](/connect-your-ai) guide for client-specific instructions.
+  </Accordion>
+
+  <Accordion title="What file types can I upload in the Command Center?">
+    You can upload the following file types directly onto the chat input area:
+
+    **Documents:** PDF, DOCX, XLSX, CSV, JSON, TXT, MD
+
+    **Images:** PNG, JPG
+
+    The maximum file size is **10 MB** per file. Bridge reads the file's contents and can act on them as part of any command.
+  </Accordion>
+
+  <Accordion title="My session expired — what do I do?">
+    When your session token expires, Bridge automatically redirects you to the [login page](https://bridge-mcp-967806289134.us-central1.run.app/login). Sign in again to continue.
+
+    Your conversation history is stored in your browser's localStorage, so it will still be there when you return. Nothing is lost.
+  </Accordion>
+
+  <Accordion title="How do I cancel my subscription?">
+    <Steps>
+      <Step title="Open your profile">
+        Go to your **Profile** page from the top-right menu.
+      </Step>
+      <Step title="Open the billing portal">
+        Click **Manage Subscription** to open the Stripe billing portal.
+      </Step>
+      <Step title="Cancel your plan">
+        Click **Cancel plan** and follow the prompts. Your access continues until the end of your current billing period.
+      </Step>
+    </Steps>
+  </Accordion>
+
+  <Accordion title="What are Missions?">
+    Missions are saved multi-step workflows. After you run a complex command successfully, Bridge may prompt you to save it as a Mission. The next time you need to do the same thing, you can trigger it with one click instead of retyping the full request.
+
+    See the [Missions](/concepts/missions) guide to learn how to create and manage them.
+  </Accordion>
+
+  <Accordion title="What are Plays?">
+    Plays are pre-built instruction sets for common tasks — for example, turning a meeting transcript into a set of tasks, running a client onboarding checklist, or summarizing a daily standup. When you reference a Play in a command, Bridge loads the instructions automatically and executes the workflow.
+
+    See the [Plays Library](/concepts/plays) guide to browse available Plays.
+  </Accordion>
+
+  <Accordion title="How do I delete my account?">
+    To request account deletion, open an issue on the [Bridge GitHub repository](https://github.com/amarareps/bridge-mcp/issues) and include your account email address. The Bridge team will process your request and confirm when deletion is complete.
+
+    <Warning>
+      Account deletion is permanent and cannot be undone. All connected credentials and account data will be removed.
+    </Warning>
+  </Accordion>
+</AccordionGroup>

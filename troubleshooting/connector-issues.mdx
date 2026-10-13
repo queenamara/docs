@@ -1,0 +1,155 @@
+---
+title: "Troubleshoot Bridge connector and login problems"
+description: "Step-by-step fixes for connector problems — OAuth failures, expired tokens, connector limits, file upload issues, and MCP connection errors."
+---
+
+Most connector problems fall into a small number of patterns — expired tokens, revoked permissions, or browser state that needs a reset. Work through the section that matches your symptom and you'll be back up in a few minutes. For general questions about Bridge, see the [FAQ](/troubleshooting/faq).
+
+## Connector won't connect or OAuth fails
+
+If clicking **Connect** opens an authorization window that errors out, closes immediately, or loops back without completing:
+
+<Steps>
+  <Step title="Allow pop-ups for the Bridge domain">
+    The OAuth flow opens in a pop-up window. If your browser is blocking pop-ups, you'll see the authorization window never appear or close instantly. Allow pop-ups for `bridge-mcp-967806289134.us-central1.run.app` and try again.
+  </Step>
+  <Step title="Clear your browser cache">
+    Stale cookies or cached auth state can interrupt the OAuth flow. Clear your browser cache, reload the [Connectors page](https://bridge-mcp-967806289134.us-central1.run.app/connectors), and try connecting again.
+  </Step>
+  <Step title="Disconnect and reconnect">
+    If the connector is partially connected, disconnect it first:
+    1. Go to the [Connectors page](https://bridge-mcp-967806289134.us-central1.run.app/connectors).
+    2. Find the connector and click **Disconnect**.
+    3. Click **Connect** again and complete the full authorization flow.
+  </Step>
+</Steps>
+
+---
+
+## Connector shows as connected but commands fail
+
+If Bridge reports a connector as connected but your commands return errors or no results:
+
+<AccordionGroup>
+  <Accordion title="OAuth token expired — reconnect the connector">
+    OAuth tokens issued by third-party tools have expiration dates. When a token expires, Bridge can no longer act on your behalf even though the connector still appears connected.
+
+    **Fix:** Go to the [Connectors page](https://bridge-mcp-967806289134.us-central1.run.app/connectors), disconnect the affected connector, and reconnect it to issue a fresh token.
+  </Accordion>
+
+  <Accordion title="Your account lost the required permissions">
+    If your role changed in the connected tool — for example, someone removed your admin access in ClickUp or Google Workspace — Bridge may no longer be able to complete certain actions.
+
+    **Fix:** Check your permissions in the connected tool's settings and restore the access level that was active when you authorized Bridge.
+  </Accordion>
+
+  <Accordion title="API key has been revoked (Shopify and other key-based connectors)">
+    For connectors that use API keys rather than OAuth (such as Shopify), the key may have been rotated or deleted in your tool's dashboard.
+
+    **Fix:** Log in to your tool's admin panel, generate a new API key, and re-enter it in Bridge from the [Connectors page](https://bridge-mcp-967806289134.us-central1.run.app/connectors).
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## "You've reached your connector limit" error
+
+The Free plan supports a maximum of 3 connected tools. If you try to connect a fourth connector, Bridge blocks the request.
+
+<Note>
+  Upgrade to the Individual, Team, or Agency plan for unlimited connectors. Go to your **Profile → Manage Subscription** to upgrade.
+</Note>
+
+If you need to stay on the Free plan, disconnect a connector you're not using before adding a new one.
+
+---
+
+## Commands seem to fail silently
+
+If you send a command and nothing happens, or the response is vague with no clear outcome:
+
+<Steps>
+  <Step title="Check the progress panel">
+    The Command Center shows a step-by-step progress panel while Bridge executes your command. If a step failed, the panel will show where it stopped. Look for a red indicator or an error message in the panel.
+  </Step>
+  <Step title="Try a simpler command">
+    Run a basic read-only command against the same connector — for example, "list my ClickUp tasks" or "show my Gmail inbox." If that works, the connector is healthy and the issue may be with the specific action you were trying.
+  </Step>
+  <Step title="Reconnect the connector">
+    If even a simple command fails, disconnect and reconnect the affected connector to rule out a token issue.
+  </Step>
+</Steps>
+
+---
+
+## File upload not working
+
+<AccordionGroup>
+  <Accordion title="File size exceeds the limit">
+    Bridge accepts files up to **10 MB**. Files larger than that won't upload. If your file is too large, try compressing it or splitting it before uploading.
+  </Accordion>
+
+  <Accordion title="File type isn't supported">
+    Bridge supports: **PDF, DOCX, XLSX, CSV, JSON, TXT, MD, PNG, JPG**
+
+    If your file is a different type, convert it to one of the supported formats before uploading.
+  </Accordion>
+
+  <Accordion title="Drag-and-drop not responding">
+    Drag the file directly onto the chat input area at the bottom of the Command Center — not the page itself. If drag-and-drop isn't working, try clicking the file upload icon in the input bar to browse for the file instead.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Can't log in or stuck in a redirect loop
+
+If Bridge keeps redirecting you to the login page even after signing in, the stored session token may be corrupted.
+
+<Steps>
+  <Step title="Open browser DevTools">
+    Press `F12` (or `Cmd+Option+I` on Mac) to open DevTools, then click the **Application** tab.
+  </Step>
+  <Step title="Clear your stored session token">
+    In the left sidebar, expand **Local Storage** and select the Bridge domain. Find the `bridge_token` key, right-click it, and choose **Delete**.
+  </Step>
+  <Step title="Reload and sign in">
+    Close DevTools, reload the page, and sign in again at the [login page](https://bridge-mcp-967806289134.us-central1.run.app/login). Bridge will issue a fresh token and redirect you to the Command Center.
+  </Step>
+</Steps>
+
+<Tip>
+  If you need to clear the token regularly, check that your system clock is set to the correct time — an incorrect clock can cause sessions to expire immediately after signing in.
+</Tip>
+
+---
+
+## MCP connection issues (Claude or Gemini)
+
+If Bridge isn't responding when accessed through an MCP client like Claude Desktop or Claude.ai:
+
+<AccordionGroup>
+  <Accordion title="Verify the MCP endpoint URL">
+    Make sure you're using the correct endpoint — a single incorrect character will cause the connection to fail.
+
+    ```
+    https://bridge-mcp-967806289134.us-central1.run.app/mcp
+    ```
+
+    Check the URL in your AI client's MCP server settings and correct it if needed.
+  </Accordion>
+
+  <Accordion title="Confirm you're authenticated">
+    Visit the health endpoint in your browser to verify Bridge is reachable and your session is active:
+
+    ```
+    https://bridge-mcp-967806289134.us-central1.run.app/health
+    ```
+
+    If you're not logged in, go to the [login page](https://bridge-mcp-967806289134.us-central1.run.app/login) first, then retry from your MCP client.
+  </Accordion>
+
+  <Accordion title="Re-add the MCP server after a token refresh">
+    Some MCP clients cache the server connection and don't automatically pick up a refreshed token. If your session expired and you signed in again, remove the Bridge MCP server from your AI client's settings and add it again with the same URL.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,114 @@
+---
+title: "Missions: save and replay workflows in Bridge"
+description: "Missions let you save a successful multi-step Bridge command as a reusable workflow with named variables you can customize each time you run it."
+---
+
+A Mission is a saved workflow. When you run a multi-step command in the Command Center — something like pulling data from Slack, summarizing it, and creating tasks in ClickUp — Bridge can save that entire sequence so you can run it again later without retyping anything. Missions are how you turn a one-off command into a repeatable process.
+
+## What a Mission contains
+
+Every Mission captures the sequence of tool steps from a successful execution, plus the values that were used in that run. Those values — a ClickUp workspace ID, a list name, a Slack channel, a date range — become **variables** you can override each time you replay the Mission.
+
+<AccordionGroup>
+  <Accordion title="Steps" defaultOpen>
+    The ordered sequence of tool calls that Bridge executed: for example, "fetch Slack messages → summarize with AI → create ClickUp tasks". The step pattern is fixed when the Mission is saved.
+  </Accordion>
+  <Accordion title="Variables">
+    Named placeholders for values that were specific to the original run. When you replay the Mission, Bridge presents these as fillable fields so you can target a different list, channel, or date range without editing the underlying steps.
+  </Accordion>
+  <Accordion title="Required connectors">
+    The set of connectors the Mission needs to run. Bridge shows a warning if any of them are not currently connected when you try to run.
+  </Accordion>
+</AccordionGroup>
+
+## How Missions are created
+
+Bridge watches for multi-step executions that went well. After a successful run, it may show a **Save as Mission?** prompt at the bottom of the conversation.
+
+<Steps>
+  <Step title="Run a multi-step command">
+    Execute any command in the Command Center that triggers multiple tool steps — for example:
+
+    ```text
+    Pull today's Slack messages from #standup, summarize them, and create a ClickUp task with the summary
+    ```
+  </Step>
+  <Step title="See the prompt">
+    If the run succeeded and used two or more tool steps, Bridge shows a **Save as Mission?** card below the response.
+  </Step>
+  <Step title="Click Save">
+    Click **Save**. Bridge names the Mission based on the command you typed and extracts the variable slots from the step inputs.
+  </Step>
+  <Step title="Edit the name (optional)">
+    You can rename the Mission immediately after saving, or later from the `/missions` page.
+  </Step>
+</Steps>
+
+<Note>
+  Not every multi-step command triggers the save prompt. Bridge uses the number of steps, the connectors involved, and whether the execution completed without errors to decide when to offer it.
+</Note>
+
+## How to run a Mission
+
+<Steps>
+  <Step title="Go to the Missions page">
+    Navigate to `/missions` in the Bridge dashboard.
+  </Step>
+  <Step title="Select a Mission">
+    Click the Mission you want to run. Bridge opens the detail view showing the step pattern, required connectors, and any variables.
+  </Step>
+  <Step title="Fill in variables">
+    Review the pre-filled values (carried over from the original run) and change any that should be different for this run — a new date range, a different list, a different channel.
+  </Step>
+  <Step title="Click Run">
+    Bridge executes the full step sequence with your updated variables. Progress appears in the same Progress Panel you see in the Command Center.
+  </Step>
+</Steps>
+
+## Mission variables
+
+Variables are the dynamic parts of a Mission. They are extracted automatically from the inputs of each step when the Mission is saved.
+
+| Variable type | What it looks like | Can be overridden? |
+|---------------|--------------------|--------------------|
+| Fixed | A hardcoded value that never changes | No |
+| Variable | A value from the original run (e.g., a list name) | Yes |
+| Context | A value resolved from session context (e.g., workspace ID) | Yes |
+
+<Tip>
+  If a variable you expect to change often is showing as fixed, you can split the command differently — for example, name the list explicitly in your command so Bridge captures it as a variable rather than resolving it automatically.
+</Tip>
+
+## Mission history
+
+Each Mission card on the `/missions` page shows:
+
+- **Run count** — how many times this Mission has been executed
+- **Last run** — when it was last triggered (shown as relative time, e.g., "3h ago")
+
+Use this to track which Missions your team relies on most and to spot ones that haven't been used in a while.
+
+## Use case examples
+
+<CardGroup cols={3}>
+  <Card title="Weekly standup summary" icon="clipboard-list">
+    Pull Slack messages from your standup channel, summarize action items, and post a digest to another channel — every Monday morning.
+  </Card>
+  <Card title="Client onboarding checklist" icon="user-check">
+    Create a set of ClickUp tasks, send a welcome email via Gmail, and add the client to your HubSpot CRM — all from a single run with the client's name as a variable.
+  </Card>
+  <Card title="Transcript to ClickUp tasks" icon="mic">
+    Paste a meeting transcript, have Bridge extract action items, and create a task in ClickUp for each one assigned to the right team member.
+  </Card>
+</CardGroup>
+
+## Related concepts
+
+<CardGroup cols={2}>
+  <Card title="Command Center" icon="terminal" href="/concepts/command-center">
+    Where you run commands that can be saved as Missions.
+  </Card>
+  <Card title="Plays" icon="book-open" href="/concepts/plays">
+    Pre-built instruction sets that make complex commands more consistent.
+  </Card>
+</CardGroup>

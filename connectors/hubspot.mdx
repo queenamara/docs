@@ -1,0 +1,103 @@
+---
+title: "HubSpot connector: access your CRM data in Bridge"
+description: "Access your HubSpot CRM — contacts, companies, deals, and activities — through HubSpot's official MCP integration in the Bridge Command Center."
+---
+
+The HubSpot connector brings your CRM into Bridge using HubSpot's official MCP server. Once connected, you can look up contacts, check deal status, create new records, log activities, and work with companies — all by describing what you need in plain English.
+
+## How to connect
+
+<Steps>
+  <Step title="Open the Connectors page">
+    Go to [bridge-mcp-967806289134.us-central1.run.app/connectors](https://bridge-mcp-967806289134.us-central1.run.app/connectors) in your dashboard.
+  </Step>
+  <Step title="Connect HubSpot">
+    Click **Connect** next to HubSpot.
+  </Step>
+  <Step title="Authorize via OAuth">
+    You'll be redirected to HubSpot's authorization page. Sign in with your HubSpot account and approve the permissions so Bridge can access your CRM data.
+  </Step>
+  <Step title="Done">
+    Bridge connects to your HubSpot portal. Start using it from the Command Center.
+  </Step>
+</Steps>
+
+## What you can do
+
+### Find and look up contacts
+
+Search your HubSpot contacts by name, email, company, or any property.
+
+```
+Find all open deals in HubSpot
+```
+```
+Get contact details for john@acme.com
+```
+```
+Show me all contacts at Acme Corp
+```
+
+### Create and update records
+
+Add new contacts, companies, or deals to your CRM directly from the Command Center.
+
+```
+Create a new contact for Jane Smith at Acme Corp — email is jane@acme.com
+```
+```
+Create a new deal called "Acme Corp — Enterprise" in the pipeline
+```
+```
+Update the Acme deal stage to "Proposal sent"
+```
+
+### Log activities
+
+Record calls, emails, meetings, and notes against any contact or deal.
+
+```
+Log a call with the Acme deal — we discussed contract terms
+```
+```
+Add a note to John Smith's contact: "Interested in the Pro plan, follow up next week"
+```
+
+### Check deals and pipeline
+
+View deal status, pipeline stage, and associated contacts or companies.
+
+```
+What deals do I have closing this month?
+```
+```
+Show me all deals in the "Proposal" stage
+```
+```
+Get the details on the Acme Enterprise deal
+```
+
+## What Bridge covers
+
+<CardGroup cols={2}>
+  <Card title="Contacts" icon="address-book">
+    Search, view, create, and update contact records. Access email, phone, company, and all custom properties.
+  </Card>
+  <Card title="Companies" icon="building">
+    Look up company records, view associated contacts and deals, and create new company entries.
+  </Card>
+  <Card title="Deals" icon="handshake">
+    View deals by pipeline and stage, create new deals, update deal properties, and track close dates.
+  </Card>
+  <Card title="Activities" icon="clock-rotate-left">
+    Log calls, notes, meetings, and emails against any contact, company, or deal in your CRM.
+  </Card>
+</CardGroup>
+
+<Note>
+  HubSpot uses the **official `@hubspot/mcp-server` integration**. Bridge connects directly to HubSpot's MCP server, so the full range of supported CRM operations is available as HubSpot expands their MCP coverage.
+</Note>
+
+<Tip>
+  If you work across contacts and deals in the same request — for example, "Create a deal for Jane Smith and log a follow-up call" — Bridge handles both steps in a single conversation turn.
+</Tip>

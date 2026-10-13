@@ -1,0 +1,86 @@
+---
+title: "Templates: save and reuse quote content"
+description: "Save a configured quote module — like a polished testimonial — as a named template, then reuse it on future quotes. Manage your whole library conversationally through your assistant."
+icon: "bookmark"
+---
+
+A template is a saved piece of quote content. When you get a quote module just right — a polished customer testimonial, a standard scope blurb, a set of terms — Bridge can save it under a name so you can drop it into future quotes instead of retyping it. You build a small library once and reuse it forever.
+
+Templates are managed conversationally: you ask Bridge in plain English to save, find, update, or remove them — no separate screen to learn.
+
+## What a template contains
+
+<AccordionGroup>
+  <Accordion title="A name" defaultOpen>
+    How you refer to it later — for example, `Greater New Unity — 10 star`. Names are unique within a module type, so saving a new one under a name that already exists is caught rather than silently duplicated.
+  </Accordion>
+
+  <Accordion title="A module type">
+    Which kind of quote module the template is for — a testimonial, a scope item, and so on. Listing your templates for a given type is how you find the right one to reuse.
+  </Accordion>
+
+  <Accordion title="The content">
+    The configured fields themselves — for a testimonial, that's the quote, who it's attributed to, their organization, and the star rating. Bridge stores this as-is and hands it back exactly when you reuse it.
+  </Accordion>
+</AccordionGroup>
+
+## Managing templates from the Command Center
+
+Everything is driven by plain-English commands. Bridge picks the right action for you.
+
+| You want to… | Say something like |
+| --- | --- |
+| Save new content | `Save this testimonial as "Greater New Unity"` |
+| See what you've saved | `List my saved testimonials` |
+| Load one to reuse or review | `Show me the "Greater New Unity" testimonial` |
+| Change one | `Update "Greater New Unity" with this new quote` |
+| Remove one | `Delete the "Old Draft" testimonial` |
+
+<Note>
+  Your template library is tied to your connected HubSpot account. You see and manage only your own account's templates — never another organization's.
+</Note>
+
+## Save as new, or update in place
+
+When you save, Bridge either creates a new template or overwrites an existing one:
+
+<Steps>
+  <Step title="Save as new">
+    Give it a name that isn't in use yet and Bridge creates a fresh template. If the name is already taken, Bridge tells you instead of quietly overwriting — so you can pick a different name or update the existing one on purpose.
+  </Step>
+  <Step title="Update in place">
+    Point Bridge at a template you already have and give it new content or a new name. It overwrites just that one, keeping everything else in your library untouched.
+  </Step>
+</Steps>
+
+<Tip>
+  Editing or deleting a template never changes quotes you've already built. Reusing a template copies its content into that quote, so your saved library and your live quotes stay independent.
+</Tip>
+
+## Use case examples
+
+<CardGroup cols={3}>
+  <Card title="Reusable testimonials" icon="quote-right">
+    Save your best customer testimonials once and drop the right one into every new quote — no re-typing the quote, name, and organization each time.
+  </Card>
+
+  <Card title="Standard scope language" icon="list-check">
+    Keep your commonly used scope-of-work wording as templates so every quote describes the work the same, polished way.
+  </Card>
+
+  <Card title="Team consistency" icon="users">
+    Everyone on your HubSpot account draws from the same saved library, so quotes stay on-brand no matter who builds them.
+  </Card>
+</CardGroup>
+
+## Related concepts
+
+<CardGroup cols={2}>
+  <Card title="Command Center" icon="terminal" href="/concepts/command-center">
+    Where you save, find, and reuse templates in plain English.
+  </Card>
+
+  <Card title="Connectors" icon="plug" href="/concepts/connectors">
+    Connect your HubSpot account so Bridge knows which library is yours.
+  </Card>
+</CardGroup>

@@ -1,0 +1,135 @@
+---
+title: "Google Drive connector: search and manage files in Bridge"
+description: "Search files by name or content, browse folders, read document text, create folders, upload files, and move items across your Google Drive using Bridge."
+---
+
+The Google Drive connector lets Bridge find and work with files in your Drive. You can search by name or content, browse specific folders, read the text of Docs, Sheets, and Slides, create new folders, upload text-based files, and move items to different locations — without opening Drive.
+
+## How to connect
+
+<Steps>
+  <Step title="Open the Connectors page">
+    Go to [bridge-mcp-967806289134.us-central1.run.app/connectors](https://bridge-mcp-967806289134.us-central1.run.app/connectors) in your dashboard.
+  </Step>
+  <Step title="Connect Google Drive">
+    Click **Connect** next to Google Drive.
+  </Step>
+  <Step title="Authorize with Google">
+    You'll be redirected to Google's OAuth consent screen. Sign in and approve the permissions Bridge needs to access your files.
+  </Step>
+  <Step title="Done">
+    Bridge can now access your Drive. Use the Command Center to start working with files.
+  </Step>
+</Steps>
+
+<Note>
+  Google Drive is a separate connector from Gmail and Google Calendar. Each uses its own authorization and can be connected independently.
+</Note>
+
+## What you can do
+
+### Search for files
+
+Find files by searching their names or contents. Bridge returns links, owners, file types, and last-modified dates.
+
+```
+Find the Q3 budget spreadsheet
+```
+```
+Search for files containing "partnership agreement"
+```
+```
+Find all documents owned by alice@example.com
+```
+
+### Browse folders
+
+List the contents of any folder, or see your most recently modified files across Drive.
+
+```
+List all files shared with me this month
+```
+```
+Show me what's in the "Client Contracts" folder
+```
+```
+List all spreadsheets in the Finance folder
+```
+
+### Read file contents
+
+Get the text content of a Google Doc, Sheet, or Slides file — useful for summarizing, referencing, or extracting data.
+
+```
+Get the contents of the project proposal doc
+```
+```
+Read the Q4 planning spreadsheet and summarize the key numbers
+```
+```
+What does the employee handbook say about PTO?
+```
+
+### Create folders
+
+Create a new folder anywhere in your Drive hierarchy.
+
+```
+Create a folder called "2025 Contracts" in the Legal folder
+```
+```
+Make a new folder called "Design Assets" in the root of my Drive
+```
+
+### Upload files
+
+Create new text-based files in Drive — as a Google Doc, plain text, CSV, HTML, or JSON.
+
+```
+Create a Google Doc called "Meeting Notes — November" with the notes from our discussion
+```
+```
+Save this data as a CSV file called "leads-export" in the Sales folder
+```
+
+### Move files
+
+Move a file or folder from one location to another.
+
+```
+Move the "Old Invoices" folder into the Archive folder
+```
+```
+Move the project brief to the Client Deliverables folder
+```
+
+## What Bridge covers
+
+<AccordionGroup>
+  <Accordion title="Search">
+    Full-text search across file names and content. Filter results by file type. Returns up to 50 results sorted by last modified.
+  </Accordion>
+  <Accordion title="Listing files">
+    List files in any folder by folder ID, or list your most recently modified files across all of Drive. Filter by MIME type (folders, Docs, Sheets, etc.).
+  </Accordion>
+  <Accordion title="Reading files">
+    Export text content from Google Docs (as plain text), Google Sheets (as CSV), and Google Slides (as plain text). Download content from plain text and JSON files directly.
+  </Accordion>
+  <Accordion title="Creating folders">
+    Create folders anywhere in your Drive — in the root or nested inside an existing folder.
+  </Accordion>
+  <Accordion title="Uploading files">
+    Create new files with text content. Supported output types: Google Doc, plain text, CSV, HTML, JSON. Files are created in the root or in a specified parent folder.
+  </Accordion>
+  <Accordion title="Moving files">
+    Move any file or folder from its current location to a new destination folder.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Bridge can read Google Docs, Sheets, and Slides, but cannot read binary files like PDFs or images. For those, Bridge returns file metadata and a link instead of content.
+</Note>
+
+<Tip>
+  If you know a file exists but can't remember its exact name, describe what it contains — Bridge searches both file names and document content.
+</Tip>

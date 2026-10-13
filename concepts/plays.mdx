@@ -1,0 +1,111 @@
+---
+title: "Plays Library: pre-built AI workflow instructions"
+description: "Plays are pre-built instruction sets that guide Bridge through common workflows consistently — great results every time, no manual prompting required."
+---
+
+A Play is a markdown instruction document stored in Bridge's Plays Library. When you load a Play before running a command, Bridge's AI reads those instructions first and uses them to guide how it approaches the task. Plays encode your team's best practices and preferred workflows so the AI doesn't have to guess — and you don't have to re-explain how things should be done every time.
+
+## What a Play contains
+
+Each Play is a plain markdown file with step-by-step instructions written for the AI. Think of it like a standard operating procedure that the AI reads and follows before it starts working. A Play can specify which fields to populate, how to name things, what to skip, and how to handle edge cases.
+
+<Info>
+  Plays are read-only instructions loaded into the AI's context. They don't execute code or call your tools directly — they shape how the AI calls them.
+</Info>
+
+## Available plays
+
+Bridge ships with plays for the most common workflows. Below are three examples to give you a sense of what's available.
+
+<AccordionGroup>
+  <Accordion title="transcript-to-tasks" defaultOpen>
+    Turns a meeting transcript into a structured list of ClickUp tasks. The Play instructs Bridge on how to identify action items, extract owners, set due dates from context clues, and assign tasks to the right list. Paste a transcript and Bridge does the rest.
+  </Accordion>
+  <Accordion title="client-onboarding">
+    Walks Bridge through a standard client onboarding sequence: create ClickUp tasks for each onboarding step, send a welcome email, and log the new client in your CRM. Variable inputs include the client name, contact email, and target start date.
+  </Accordion>
+  <Accordion title="daily-standup-summary">
+    Summarizes team progress from Slack standup messages. The Play tells Bridge how to structure the summary — what was done, what's blocked, what's coming next — and how to post or save the result.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  To see all plays currently available in your account, type `List the available plays` in the Command Center or use the `bridge_list_plays` MCP tool if you're connected via MCP.
+</Tip>
+
+## How to use a Play
+
+You load a Play by mentioning it in your command. Bridge recognizes the intent, fetches the Play's instructions from the library, and applies them before executing.
+
+<Steps>
+  <Step title="Name the Play in your command">
+    Reference the Play by name in the Command Center. You can combine it with your actual input in the same message.
+
+    ```text example commands
+    Load the transcript-to-tasks play, then here's the transcript: [paste transcript]
+    Use the client-onboarding play for a new client named Acme Corp, contact is jane@acme.com
+    Run the daily-standup-summary play for #standup in Slack
+    ```
+  </Step>
+  <Step title="Bridge fetches the Play">
+    Bridge retrieves the Play's instruction document from the library and loads it into the AI's context for this command.
+  </Step>
+  <Step title="Bridge executes with the Play's guidance">
+    The AI follows the Play's instructions as it calls your connected tools — filling fields the right way, naming things consistently, and handling edge cases as the Play specifies.
+  </Step>
+</Steps>
+
+## Why Plays matter
+
+Without a Play, Bridge's AI makes reasonable guesses about how to structure its output — what to name a task, which fields to fill, how to handle ambiguity. Those guesses are often fine, but they won't always match how your team works.
+
+Plays eliminate that variability. Once a Play exists for a workflow, every run of that workflow produces output structured the same way — regardless of who runs it or how they phrase the command.
+
+<CardGroup cols={2}>
+  <Card title="Consistency" icon="check-circle">
+    Every run of a Play-guided command follows the same structure and naming conventions your team agreed on.
+  </Card>
+  <Card title="Institutional knowledge" icon="book">
+    The Play captures how your team does things — edge cases, field mappings, preferences — so new team members get the same results as experienced ones.
+  </Card>
+</CardGroup>
+
+## MCP tools for Plays
+
+If you're using Bridge connected to Claude or Gemini via MCP, two tools give you direct access to the Plays Library from within your AI client.
+
+<AccordionGroup>
+  <Accordion title="bridge_list_plays" defaultOpen>
+    Lists all available plays in the library. Use this to discover what's available before starting a task.
+
+    **Returns:** play names, descriptions, types, and associated connectors.
+
+    ```text usage in Claude or Gemini
+    Use bridge_list_plays to show me what plays are available
+    ```
+  </Accordion>
+  <Accordion title="bridge_get_play">
+    Fetches a specific Play by name and loads its full instruction content into the AI's context. Supports exact match and case-insensitive fallback.
+
+    **Input:** `play_name` — the name of the Play (e.g., `transcript-to-tasks`)
+
+    ```text usage in Claude or Gemini
+    Use bridge_get_play with transcript-to-tasks, then process this transcript: [paste]
+    ```
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  These MCP tools are available when Bridge is connected to your AI client as an MCP server. In the Bridge Command Center, you load Plays by mentioning them in plain English — no tool names required.
+</Note>
+
+## Related concepts
+
+<CardGroup cols={2}>
+  <Card title="Command Center" icon="terminal" href="/concepts/command-center">
+    Where you run Play-guided commands in plain English.
+  </Card>
+  <Card title="Missions" icon="bookmark" href="/concepts/missions">
+    Save successful Play-guided runs as reusable workflows.
+  </Card>
+</CardGroup>

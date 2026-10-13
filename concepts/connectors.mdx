@@ -1,0 +1,132 @@
+---
+title: "Connectors: link your business tools to Bridge"
+description: "Connectors give Bridge access to your business tools. Connect ClickUp, Gmail, Slack, and more so you can manage them all from the Command Center."
+---
+
+Connectors are the integrations that give Bridge permission to read and write data in your business tools. Without a connector, Bridge cannot interact with that service. Once a connector is active, every tool it exposes becomes available in the Command Center — no extra setup required.
+
+## How connectors work
+
+Most connectors use OAuth: you click **Connect**, authorize Bridge in your tool's own login screen, and Bridge receives a scoped access token. A small number of connectors use an API key instead. Either way, Bridge stores your credentials encrypted and uses them only when you issue a command that needs that tool.
+
+<Info>
+  Bridge never stores your OAuth refresh tokens in plain text. Credentials are encrypted at rest and scoped to the minimum permissions each connector needs.
+</Info>
+
+## Available connectors
+
+<CardGroup cols={2}>
+  <Card title="ClickUp" icon="check-square" href="/connectors/clickup">
+    Tasks, projects, lists, spaces, time tracking, and templates.
+  </Card>
+  <Card title="Gmail" icon="mail" href="/connectors/gmail">
+    Read, draft, send, and organize email.
+  </Card>
+  <Card title="Google Calendar" icon="calendar" href="/connectors/google-calendar">
+    View and create events, check availability.
+  </Card>
+  <Card title="Google Drive" icon="hard-drive" href="/connectors/google-drive">
+    Browse, upload, and share files.
+  </Card>
+  <Card title="Google Docs" icon="file-text">
+    Read and write document content.
+  </Card>
+  <Card title="Google Sheets" icon="table">
+    Read and write spreadsheet data.
+  </Card>
+  <Card title="Slack" icon="message-square" href="/connectors/slack">
+    Read messages and post to channels.
+  </Card>
+  <Card title="Shopify" icon="shopping-bag" href="/connectors/shopify">
+    Products, orders, customers, and inventory.
+  </Card>
+  <Card title="HubSpot" icon="bar-chart-2" href="/connectors/hubspot">
+    Contacts, deals, companies, and activities.
+  </Card>
+  <Card title="Guru" icon="book">
+    Search and retrieve knowledge cards.
+  </Card>
+  <Card title="Copper CRM" icon="briefcase">
+    Contacts, leads, opportunities, and tasks.
+  </Card>
+  <Card title="JustCall" icon="phone">
+    Call logs, contacts, and SMS.
+  </Card>
+  <Card title="Spinach" icon="align-left">
+    Meeting summaries and action items.
+  </Card>
+</CardGroup>
+
+<Note>
+  More connectors are on the way. If the tool you need isn't listed here, check back soon or contact support.
+</Note>
+
+## Plan limits
+
+The number of connectors you can have active at once depends on your plan.
+
+| Plan | Active connectors |
+|------|-------------------|
+| Free | Up to 3 |
+| Individual | Unlimited |
+| Team | Unlimited |
+| Agency | Unlimited |
+
+<Tip>
+  On the Free plan, choose your three most-used tools first. You can swap connectors at any time — disconnecting one frees up the slot immediately.
+</Tip>
+
+## How to connect a tool
+
+<Steps>
+  <Step title="Open the Connectors page">
+    Go to `/connectors` in the Bridge dashboard. You'll see all available connectors, with a green dot next to any that are already connected.
+  </Step>
+  <Step title="Click Connect">
+    Find the connector you want and click the **Connect** button next to it.
+  </Step>
+  <Step title="Authorize in your tool">
+    Bridge opens the tool's own authorization screen. Sign in and grant the requested permissions. You're redirected back to Bridge when done.
+  </Step>
+  <Step title="Confirm the connection">
+    The connector's card shows a green dot and a **Connected** status. It's now available in the Command Center.
+  </Step>
+</Steps>
+
+## How to disconnect a tool
+
+<Steps>
+  <Step title="Open the Connectors page">
+    Go to `/connectors` in the Bridge dashboard.
+  </Step>
+  <Step title="Select the connector">
+    Click the connector you want to remove.
+  </Step>
+  <Step title="Remove credentials">
+    Click **Remove credentials** (or **Disconnect**) and confirm. Bridge deletes the stored token immediately.
+  </Step>
+</Steps>
+
+<Warning>
+  Disconnecting a connector removes Bridge's access to that tool right away. Any Missions or saved workflows that depend on it will fail until you reconnect.
+</Warning>
+
+## Connector status at a glance
+
+The `/connectors` page shows every available connector with one of two states:
+
+- **Green dot** — connected and ready to use in the Command Center
+- **Connect button** — not yet connected; click to authorize
+
+If a connector loses access (for example, because you revoked it in the third-party tool), the green dot disappears and Bridge prompts you to reconnect the next time a command needs it.
+
+## Related concepts
+
+<CardGroup cols={2}>
+  <Card title="Command Center" icon="terminal" href="/concepts/command-center">
+    Use your connected tools from one chat interface.
+  </Card>
+  <Card title="Missions" icon="bookmark" href="/concepts/missions">
+    Save multi-tool workflows and run them again with one click.
+  </Card>
+</CardGroup>

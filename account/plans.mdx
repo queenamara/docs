@@ -1,0 +1,112 @@
+---
+title: "Bridge plans: compare Free, Individual, Team, Agency"
+description: "Compare all four Bridge plans side by side. Understand connector limits, monthly tool calls, AI token allowances, and how to upgrade."
+---
+
+Bridge offers four plans. All plans give you access to connectors and the Command Center — the differences are in how many connectors you can add, how many tool calls you get each month, and whether Bridge's built-in AI agent is included. You can upgrade or change your plan at any time from the **Profile** page.
+
+## Plan comparison
+
+<CardGroup cols={2}>
+  <Card title="Free" icon="sprout">
+    **3 connectors** · **1,000 tool calls/month** · No AI agent
+
+    Best for trying Bridge with a single tool before committing to a paid plan. Hard cap — no overages.
+  </Card>
+  <Card title="Individual" icon="user">
+    **Unlimited connectors** · **100,000 tool calls/month** · **500,000 AI tokens/month**
+
+    Built for solo professionals who want full connector access and Bridge's AI agent for multi-step requests.
+  </Card>
+  <Card title="Team" icon="users">
+    **Unlimited connectors** · **100,000 tool calls/seat/month** · **500,000 AI tokens/seat/month**
+
+    For teams. Every seat adds its own tool-call and token allowance, so the org's total capacity grows with your headcount.
+  </Card>
+  <Card title="Agency" icon="building-2">
+    **Unlimited connectors** · **Unlimited tool calls** · AI tokens TBD
+
+    For agencies managing work across many clients. No tool-call caps. [Contact us](https://github.com/amarareps/bridge-mcp/issues) for AI token details.
+  </Card>
+</CardGroup>
+
+## Limits at a glance
+
+| | Free | Individual | Team | Agency |
+|---|---|---|---|---|
+| Connectors | 3 | Unlimited | Unlimited | Unlimited |
+| Tool calls/month | 1,000 | 100,000 | 100,000 per seat | Unlimited |
+| AI tokens/month | None | 500,000 | 500,000 per seat | TBD |
+| AI agent features | — | Yes | Yes | Yes |
+| Overage billing | No (hard cap) | Yes | Yes | — |
+
+## What counts as a tool call?
+
+A tool call is any single action Bridge takes on a connected tool on your behalf. Examples:
+
+- Creating a task in ClickUp = **1 tool call**
+- Sending a Slack message = **1 tool call**
+- Reading an email from Gmail = **1 tool call**
+- Updating a HubSpot contact = **1 tool call**
+
+A single plain-English request — "create a task, send a Slack message, and email the client" — may result in several tool calls if it touches multiple actions across multiple connectors.
+
+<Note>
+  On the **Free** plan, once you reach 1,000 tool calls for the month, Bridge will decline further requests until the next calendar month. Paid plans allow overages, billed per call beyond the monthly cap.
+</Note>
+
+## What are AI tokens?
+
+AI tokens are consumed when Bridge's own AI agent processes a request — for example, when it needs to reason about which connector to use, plan a multi-step sequence, or interpret ambiguous instructions.
+
+AI tokens are **not** consumed when you send a request directly from Claude or Gemini. They apply only when you use Bridge's built-in agent via the Command Center or Missions.
+
+AI token access requires the **Individual** plan or higher. The Free plan does not include AI agent features.
+
+## Checking your usage
+
+Your current tool-call usage is visible as a progress bar on the **Profile** page. It resets at the start of each calendar month.
+
+<Steps>
+  <Step title="Open Profile">
+    Click your avatar or name to open the **Profile** page.
+  </Step>
+  <Step title="View the usage bar">
+    The usage bar shows tool calls used this month against your plan's cap. On the Team plan, this reflects the combined org total across all seats.
+  </Step>
+</Steps>
+
+## How to upgrade
+
+<Steps>
+  <Step title="Open Profile">
+    Click your avatar or name to open the **Profile** page.
+  </Step>
+  <Step title="Open the billing portal">
+    Click **Manage Subscription**. This opens the Stripe customer portal.
+  </Step>
+  <Step title="Choose a plan">
+    Select the plan you want and complete checkout. Your new limits take effect immediately.
+  </Step>
+</Steps>
+
+<Note>
+  Only the org **owner** can change the plan. If you need to upgrade and you're not the owner, ask them to open the billing portal.
+</Note>
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="What happens when I hit my tool-call limit?">
+    On the **Free** plan, Bridge stops processing requests until the next calendar month — there's no overage. On **Individual** and **Team** plans, requests continue and overages are billed per call beyond your monthly cap.
+  </Accordion>
+  <Accordion title="On the Team plan, how are tool calls counted?">
+    Each seat contributes 100,000 tool calls and 500,000 AI tokens to the org's shared monthly pool. A 3-seat Team org has 300,000 tool calls per month in total.
+  </Accordion>
+  <Accordion title="Can I downgrade my plan?">
+    Yes. Open the billing portal from your **Profile** page and select a lower tier. If you're on Free, you'll need to remove connectors above the 3-connector limit before Bridge enforces the cap.
+  </Accordion>
+  <Accordion title="Does the connector limit apply to all connected accounts or just connector types?">
+    The limit applies to distinct connected credentials — each connected account counts as one connector. Connecting two different Gmail accounts would use two of your connector slots.
+  </Accordion>
+</AccordionGroup>

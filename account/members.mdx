@@ -1,0 +1,108 @@
+---
+title: "Invite and manage team members in your Bridge org"
+description: "Invite teammates to your Bridge organization by email, assign Admin or Member roles, and manage or resend pending invitations from the Profile page."
+---
+
+Bridge organizations support multiple members working in a shared workspace. You invite teammates by email, they accept via a magic link, and they're immediately active in your org with access to the connectors and tools your plan allows. Every member has a role that determines what they can change.
+
+## Roles
+
+Each member in a Bridge org has one of three roles.
+
+<CardGroup cols={3}>
+  <Card title="Owner" icon="crown">
+    One per org. Can rename the organization, manage billing, and manage all members (invite, view, revoke).
+  </Card>
+  <Card title="Admin" icon="shield">
+    Can invite new members, resend and revoke pending invitations, and view the full member list.
+  </Card>
+  <Card title="Member" icon="user">
+    Can use Bridge in full — run commands, use connectors, save Missions — and view org information.
+  </Card>
+</CardGroup>
+
+<Note>
+  There is exactly one owner per organization. Ownership cannot currently be transferred from the Bridge UI — contact support if you need to change ownership.
+</Note>
+
+## View current members
+
+Any member of the org can view the full member list.
+
+<Steps>
+  <Step title="Open Profile">
+    Click your avatar or name to open the **Profile** page.
+  </Step>
+  <Step title="Go to Members">
+    Scroll to the **Members** section. You'll see each member's email address, role, and the date they joined.
+  </Step>
+</Steps>
+
+## Invite a new member
+
+Only owners and admins can send invitations. Invited members always join with the **member** role.
+
+<Steps>
+  <Step title="Open Profile">
+    Click your avatar or name to open the **Profile** page.
+  </Step>
+  <Step title="Open the Members section">
+    Scroll to **Members** and click **Invite**.
+  </Step>
+  <Step title="Enter their email address">
+    Type the invitee's work email address and click **Send Invite**.
+  </Step>
+  <Step title="They receive an invitation email">
+    Bridge sends a magic-link email to the address you entered. The invitee clicks the link, completes account creation, and lands directly in your org as an active member.
+  </Step>
+</Steps>
+
+<Tip>
+  The invitation link expires after a period of time. If your teammate didn't receive the email or the link has expired, use the **Resend** action described below.
+</Tip>
+
+## Manage pending invitations
+
+An invitation is "pending" until the recipient clicks the magic link and completes signup. Owners and admins can view, resend, or revoke any pending invitation.
+
+<Steps>
+  <Step title="Open Profile">
+    Click your avatar or name to open the **Profile** page.
+  </Step>
+  <Step title="Go to Members">
+    Scroll to the **Members** section. Pending invitations are listed separately from active members, showing the invitee's email, when the invite was sent, and who sent it.
+  </Step>
+  <Step title="Resend or revoke">
+    Next to any pending invitation, click **Resend** to send a fresh magic-link email, or **Revoke** to cancel the invitation entirely.
+  </Step>
+</Steps>
+
+<Note>
+  There is a 60-second cooldown between resends for the same invitation, enforced to prevent accidental email flooding.
+</Note>
+
+## Team plan and seat-based billing
+
+If your org is on the **Team** plan, each active member is a seat. Seats matter because tool calls and AI tokens are allocated per seat:
+
+- **100,000 tool calls/month** per seat
+- **500,000 AI tokens/month** per seat
+
+A 4-seat Team org has 400,000 tool calls and 2,000,000 AI tokens per month in total, shared across the org.
+
+<Tip>
+  Your current tool-call usage — against the full org total — is visible as a progress bar on the **Profile** page. See [Plans and pricing](/account/plans) for more detail on how limits work.
+</Tip>
+
+## Permissions reference
+
+| Action | Owner | Admin | Member |
+|---|:---:|:---:|:---:|
+| Run commands & use connectors | Yes | Yes | Yes |
+| View org name and plan | Yes | Yes | Yes |
+| View member list | Yes | Yes | Yes |
+| View pending invitations | Yes | Yes | Yes |
+| Invite a new member | Yes | Yes | — |
+| Resend or revoke an invitation | Yes | Yes | — |
+| Rename the organization | Yes | — | — |
+| Access billing portal | Yes | — | — |

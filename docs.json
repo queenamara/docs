@@ -1,0 +1,111 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "almond",
+  "name": "Bridge",
+  "description": "Connect your AI to every business tool — ClickUp, Gmail, Slack, Shopify, and more — with plain English commands.",
+  "colors": {
+    "primary": "#5B5BD6",
+    "light": "#EDEDFC",
+    "dark": "#3E3E8F"
+  },
+  "favicon": "/favicon.ico",
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "contextual": {
+    "options": ["copy", "view", "assistant", "mcp", "add-mcp"]
+  },
+  "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Home",
+          "icon": "house",
+          "href": "/"
+        },
+        {
+          "anchor": "Help",
+          "icon": "life-buoy",
+          "href": "https://github.com/amarareps/bridge-mcp/issues"
+        }
+      ]
+    },
+    "directory": "card",
+    "groups": [
+      {
+        "group": "Get Started",
+        "icon": "rocket",
+        "expanded": true,
+        "pages": [
+          "introduction",
+          "quickstart",
+          "connect-your-ai"
+        ]
+      },
+      {
+        "group": "Core Concepts",
+        "icon": "layers",
+        "expanded": true,
+        "pages": [
+          "concepts/command-center",
+          "concepts/connectors",
+          "concepts/missions",
+          "concepts/plays",
+          "concepts/templates"
+        ]
+      },
+      {
+        "group": "Connectors",
+        "icon": "plug",
+        "expanded": true,
+        "pages": [
+          "connectors/overview",
+          "connectors/clickup",
+          "connectors/gmail",
+          "connectors/google-calendar",
+          "connectors/google-drive",
+          "connectors/slack",
+          "connectors/shopify",
+          "connectors/hubspot"
+        ]
+      },
+      {
+        "group": "Account & Billing",
+        "icon": "building-2",
+        "expanded": true,
+        "pages": [
+          "account/organizations",
+          "account/plans",
+          "account/members"
+        ]
+      },
+      {
+        "group": "Troubleshooting",
+        "icon": "life-buoy",
+        "expanded": true,
+        "pages": [
+          "troubleshooting/faq",
+          "troubleshooting/connector-issues"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [],
+    "primary": {
+      "type": "button",
+      "label": "Open Bridge",
+      "href": "https://bridge-mcp-967806289134.us-central1.run.app"
+    }
+  },
+  "footer": {
+    "socials": {}
+  }
+}

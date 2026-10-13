@@ -1,0 +1,94 @@
+---
+title: "Slack connector: send messages and reactions in Bridge"
+description: "Send DMs, schedule messages for a future time, add emoji reactions, and manage Slack communications — all from the Bridge Command Center."
+---
+
+The Slack connector extends Bridge's Slack capabilities beyond what the official Slack MCP provides. Specifically, Bridge adds direct message channel resolution (so you can DM people by name), scheduled message management, and emoji reactions — features that are missing from the standard Slack integration. For channel messaging, search, and reading messages, Bridge works alongside the official Slack MCP server.
+
+## How to connect
+
+<Steps>
+  <Step title="Open the Connectors page">
+    Go to [bridge-mcp-967806289134.us-central1.run.app/connectors](https://bridge-mcp-967806289134.us-central1.run.app/connectors) in your dashboard.
+  </Step>
+  <Step title="Connect Slack">
+    Click **Connect** next to Slack.
+  </Step>
+  <Step title="Authorize via Slack OAuth">
+    You'll be redirected to Slack's authorization page. Choose your workspace and approve the requested permissions.
+  </Step>
+  <Step title="Done">
+    Bridge connects to your Slack workspace. You can now send messages, schedule them, and add reactions from the Command Center.
+  </Step>
+</Steps>
+
+## What you can do
+
+### Send direct messages
+
+Open a DM with any Slack user and send them a message — by name or username.
+
+```
+Send a DM to @alice about the meeting notes
+```
+```
+Message @bob and let him know the deploy is done
+```
+
+### Schedule messages
+
+Send a message to any channel or DM at a specific time in the future. Bridge handles the scheduling so the message goes out even if you're not online.
+
+```
+Schedule a message to #general tomorrow at 9am: "Don't forget — team lunch at noon"
+```
+```
+Schedule a DM to @alice on Friday at 3pm saying the report is ready for review
+```
+
+### Manage scheduled messages
+
+List all messages you have scheduled, and cancel any of them before they go out.
+
+```
+Show me all my scheduled Slack messages
+```
+```
+Cancel the scheduled message to #general
+```
+
+### Add emoji reactions
+
+React to any message in a channel with an emoji — useful for acknowledging requests, expressing agreement, or confirming actions.
+
+```
+React with 👍 to the latest message in #engineering
+```
+```
+Add a checkmark reaction to Alice's message about the deploy
+```
+
+## What Bridge covers
+
+<CardGroup cols={2}>
+  <Card title="Direct messages" icon="comment">
+    Resolve DM channels by user and send messages directly to any Slack user in your workspace.
+  </Card>
+  <Card title="Scheduled messages" icon="clock">
+    Create, list, and cancel scheduled messages for any channel or DM.
+  </Card>
+  <Card title="Emoji reactions" icon="face-smile">
+    Add any emoji reaction to a specific message using the message timestamp.
+  </Card>
+  <Card title="Official Slack MCP" icon="slack">
+    Bridge works alongside the official Slack MCP for channel messaging, search, and reading conversations.
+  </Card>
+</CardGroup>
+
+<Note>
+  Bridge's Slack connector specifically covers **DM channel resolution**, **scheduled messages**, and **emoji reactions** — capabilities that the official Slack MCP does not include. For other Slack operations like posting to channels, searching messages, and reading channel history, the official Slack MCP handles those automatically alongside Bridge.
+</Note>
+
+<Tip>
+  To schedule a message for a specific time, include the time and date in your request: "Schedule a message to #sales at 8am Monday." Bridge handles the timezone automatically based on your workspace settings.
+</Tip>

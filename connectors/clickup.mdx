@@ -1,0 +1,194 @@
+---
+title: "ClickUp connector: manage your workspace with Bridge"
+description: "Manage tasks, projects, time tracking, docs, goals, and your entire ClickUp workspace using plain English in the Bridge Command Center."
+---
+
+ClickUp is the most capable connector in Bridge. Once connected, you can create and manage tasks, log time, write docs, set goals, build sprints, and navigate every level of your workspace hierarchy — all by describing what you want in plain English. Bridge understands your ClickUp structure so you don't have to think about API calls or IDs.
+
+## How to connect
+
+<Steps>
+  <Step title="Open the Connectors page">
+    Go to [bridge-mcp-967806289134.us-central1.run.app/connectors](https://bridge-mcp-967806289134.us-central1.run.app/connectors) in your dashboard.
+  </Step>
+  <Step title="Connect ClickUp">
+    Click **Connect** next to ClickUp.
+  </Step>
+  <Step title="Authorize via OAuth">
+    You'll be redirected to ClickUp to grant Bridge access. Sign in with the account that owns your workspace and approve the permissions.
+  </Step>
+  <Step title="Done">
+    Bridge loads your workspace context automatically. Start typing in the Command Center.
+  </Step>
+</Steps>
+
+## What you can do
+
+### Tasks
+
+Create, find, update, and delete tasks across any list in your workspace.
+
+```
+Create a task called "Design review" in the Marketing list
+```
+```
+Get all tasks assigned to me that are due this week
+```
+```
+Update the Website Redesign task — change the due date to Friday and set priority to urgent
+```
+```
+Move the "API integration" task to the Engineering backlog list
+```
+```
+Delete the duplicate onboarding task in the Client Setup list
+```
+
+### Comments and attachments
+
+Add comments, read existing comments, and attach files to any task.
+
+```
+Add a comment to the Website Redesign task: "Design assets are ready for review"
+```
+```
+Show me all comments on the Q4 Planning task
+```
+
+### Time tracking
+
+Log time entries, view time spent, and manage time estimates on any task.
+
+```
+Log 2 hours on task #abc123
+```
+```
+Show me my time entries for this week
+```
+```
+Set a time estimate of 4 hours on the Homepage Redesign task
+```
+
+### Workspace navigation
+
+Browse spaces, folders, lists, and tasks. Bridge maps your workspace structure so you can reference things by name.
+
+```
+Show me all lists in the Marketing space
+```
+```
+What folders are in the Client Projects space?
+```
+```
+List all tasks in the Q4 Sprint list
+```
+
+### Lists and templates
+
+Create new lists, or create them from a saved template.
+
+```
+Create a new list called "November Campaigns" in the Marketing folder
+```
+```
+Create a new list from the Client Onboarding template
+```
+
+### Docs
+
+Create and manage ClickUp Docs — including pages within a doc.
+
+```
+Create a new doc called "Engineering Runbook" in the Product space
+```
+```
+Add a page called "Deployment checklist" to the Engineering Runbook doc
+```
+
+### Goals
+
+Create goals, track targets, and check progress.
+
+```
+Create a goal called "Increase signups by 20%" for Q4
+```
+```
+Show me all active goals in the workspace
+```
+
+### Sprints
+
+Create sprints and manage sprint assignments.
+
+```
+Create a sprint called "Sprint 12" in the Engineering list
+```
+```
+Add the "Login bug fix" task to Sprint 12
+```
+
+### Custom fields and tags
+
+Set or clear custom field values, and manage tags on tasks.
+
+```
+Set the "Client" custom field on the Website task to "Acme Corp"
+```
+```
+Add the tag "urgent" to the API Migration task
+```
+
+### Views
+
+Create and manage views across your workspace.
+
+```
+Create a board view for the Marketing list
+```
+
+### Users and guests
+
+Look up team members and manage guest access to tasks or lists.
+
+```
+Who is assigned to the most tasks in the Engineering space?
+```
+```
+Add guest@partner.com as a guest on the Client Deliverables list
+```
+
+## What Bridge covers
+
+<AccordionGroup>
+  <Accordion title="Tasks">
+    Create, read, update, delete, move, bulk-update, merge, and create from templates. Set assignees, due dates, priorities, statuses, custom fields, tags, dependencies, and relationships. Add and read comments. Attach files. Set time estimates.
+  </Accordion>
+  <Accordion title="Time tracking">
+    Create, read, update, and delete time entries. Log time against tasks. View time spent by date range or by task. Manage time tracking tags.
+  </Accordion>
+  <Accordion title="Workspace hierarchy">
+    Read and navigate workspaces, spaces, folders, and lists. Create and update spaces, folders, and lists. Use list templates.
+  </Accordion>
+  <Accordion title="Docs and pages">
+    Create, read, and update ClickUp Docs. Create and manage pages within docs.
+  </Accordion>
+  <Accordion title="Goals">
+    Create goals with targets and due dates. Track progress. List and update existing goals.
+  </Accordion>
+  <Accordion title="Sprints">
+    Create and manage sprint-type lists. Add tasks to sprints.
+  </Accordion>
+  <Accordion title="Views">
+    Create board, list, calendar, and other views on lists or spaces.
+  </Accordion>
+  <Accordion title="Users and guests">
+    Look up workspace members and roles. Add or remove guests on tasks and lists. Manage access control for shared items.
+  </Accordion>
+  <Accordion title="Audit logs">
+    Read workspace-level audit logs for security and compliance review.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Bridge remembers your workspace structure during a session. If you refer to a task or list by name, Bridge will look it up automatically rather than asking you for an ID.
+</Tip>

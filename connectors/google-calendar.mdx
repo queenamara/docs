@@ -1,0 +1,154 @@
+---
+title: "Google Calendar connector: manage your schedule in Bridge"
+description: "View your schedule, create and update events, check availability, set Out of Office, and manage Google Tasks — all in plain English via Bridge."
+---
+
+The Google Calendar connector lets Bridge read and manage your calendar. You can ask about your upcoming schedule, create events with specific times and attendees, check when you're free, cancel or reschedule meetings, and set Out of Office blocks that auto-decline conflicting invites. Bridge also supports Google Tasks so you can manage to-dos alongside your calendar.
+
+## How to connect
+
+<Steps>
+  <Step title="Open the Connectors page">
+    Go to [bridge-mcp-967806289134.us-central1.run.app/connectors](https://bridge-mcp-967806289134.us-central1.run.app/connectors) in your dashboard.
+  </Step>
+  <Step title="Connect Google Calendar">
+    Click **Connect** next to Google Calendar.
+  </Step>
+  <Step title="Authorize with Google">
+    You'll be redirected to Google's OAuth consent screen. Sign in and approve the permissions — Bridge uses these to read and write calendar events and tasks.
+  </Step>
+  <Step title="Done">
+    Bridge connects to your primary calendar. Start using it in the Command Center.
+  </Step>
+</Steps>
+
+<Note>
+  Google Calendar is a separate connector from Gmail and Google Drive. Each uses its own OAuth authorization and can be connected independently.
+</Note>
+
+## What you can do
+
+### View your schedule
+
+See what's on your calendar for any time range, or search for specific events by name.
+
+```
+What meetings do I have tomorrow?
+```
+```
+Show me everything on my calendar this week
+```
+```
+Find my next meeting with the Acme team
+```
+
+### Check availability
+
+Find out when you're free — useful for scheduling calls or blocking time.
+
+```
+Find a free 30-minute slot this week for a call
+```
+```
+Am I free Thursday afternoon?
+```
+
+### Schedule events
+
+Create a new event with a title, time, duration, location, and attendees.
+
+```
+Schedule a 1-hour call with amy@example.com on Thursday at 2pm
+```
+```
+Create a team standup every Monday at 9am for the next 8 weeks
+```
+```
+Add a product review meeting on Friday at 3pm in the main conference room
+```
+
+### Update and cancel events
+
+Change the time, title, location, or attendees on an existing event — or cancel it entirely.
+
+```
+Move my 3pm meeting today to 4pm
+```
+```
+Cancel the product review on Friday
+```
+```
+Add mike@example.com to the Thursday call
+```
+```
+Rename "Team sync" to "Weekly planning" and change it to 10am
+```
+
+### Set Out of Office
+
+Create an Out of Office block that auto-declines new meeting invites while you're away.
+
+```
+Set me as out of office from December 23rd to January 1st
+```
+```
+I'm going to a conference next Thursday and Friday — mark me OOO
+```
+
+### Block focus time
+
+Create Focus Time events that set your status to Do Not Disturb in Google Workspace.
+
+```
+Block off Friday morning for deep work
+```
+```
+Add a 2-hour focus block every Tuesday at 10am
+```
+
+### Manage Google Tasks
+
+Create, list, complete, and delete tasks that appear in your Google Calendar task view.
+
+```
+Add "Send invoice to Acme" to my task list, due Friday
+```
+```
+Show me all my pending tasks
+```
+```
+Mark the "Send invoice" task as done
+```
+
+## What Bridge covers
+
+<AccordionGroup>
+  <Accordion title="Reading your calendar">
+    List events from your primary calendar or any other calendar you have access to. Filter by time range or search by keyword. Get full details on any specific event.
+  </Accordion>
+  <Accordion title="Availability">
+    Check free/busy status across one or more calendars over any time range.
+  </Accordion>
+  <Accordion title="Creating events">
+    Create timed events (with start and end times) or all-day events. Set title, description, location, attendees, and recurrence rules. Supports Out of Office and Focus Time event types (Google Workspace).
+  </Accordion>
+  <Accordion title="Updating events">
+    Change title, time, location, or add new attendees without replacing existing ones. When you move an event's start time, Bridge preserves the original duration automatically.
+  </Accordion>
+  <Accordion title="Deleting events">
+    Cancel any event from your calendar by name or description.
+  </Accordion>
+  <Accordion title="Out of Office">
+    Create OOO blocks with auto-decline for conflicting invitations. Customize the decline message and whether to decline existing or only new invites.
+  </Accordion>
+  <Accordion title="Google Tasks">
+    List task lists, view tasks with filters (due date, completion status), create tasks with due dates, mark tasks complete or incomplete, and delete tasks.
+  </Accordion>
+  <Accordion title="Multiple calendars">
+    Access any calendar in your Google account — personal, work, shared, or subscribed calendars. Bridge defaults to your primary calendar unless you specify another.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  When creating events with attendees, Bridge adds them to the event without removing anyone already invited. To see who's currently on an event before editing, just ask: "Who's invited to the Thursday call?"
+</Tip>

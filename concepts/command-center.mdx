@@ -1,0 +1,101 @@
+---
+title: "Bridge Command Center: your AI-powered workspace"
+description: "The Command Center is where you talk to Bridge. Describe what you want in plain English and Bridge picks the tools, executes the steps, and shows results."
+---
+
+The Command Center is where you talk to Bridge. You describe what you want to do — in plain English, no special syntax required — and Bridge figures out which of your connected tools to use, executes the steps, and shows you the result. It is the single place for everything from creating a ClickUp task to drafting a Gmail reply to checking your calendar.
+
+## How it works
+
+<Steps>
+  <Step title="Type your command">
+    Write what you want to accomplish in the chat input. Be as specific or as casual as you like — Bridge interprets natural language.
+
+    ```text example commands
+    Create a task in ClickUp called 'Q3 planning' and assign it to me
+    Draft a reply to my last Gmail from Sarah
+    What meetings do I have tomorrow?
+    Summarize the Slack messages in #general from today
+    Add a row to my Q4 pipeline sheet with the deal we just closed
+    ```
+  </Step>
+  <Step title="Bridge picks the tools">
+    Bridge reads your request, identifies which connectors to use (ClickUp, Gmail, Google Calendar, etc.), and builds a plan. For multi-step commands it shows you each step as it runs.
+  </Step>
+  <Step title="Execution runs and streams back">
+    Results appear in the chat as they arrive. For longer tasks, the Progress Panel slides in on the right so you can follow along step by step.
+  </Step>
+</Steps>
+
+## The Progress Panel
+
+For commands that involve three or more tool calls — or any command that takes longer than two seconds to start — Bridge opens the Progress Panel on the right side of the screen. Each tool step appears as it starts, with a live status indicator that updates to success or error when the step finishes.
+
+The panel stays visible after execution completes so you can review what ran. It closes automatically when you start a new command.
+
+<Tip>
+  You don't need to wait for the panel to appear before typing your next command. Bridge queues it automatically.
+</Tip>
+
+## File uploads
+
+Drag a PDF, DOCX, or image (up to 10 MB) directly onto the chat input to include it as context for your command.
+
+```text example with file
+[drag meeting-notes.pdf onto the input]
+Turn these meeting notes into ClickUp tasks and assign each one to the right team member
+```
+
+<Note>
+  File context applies only to the current command. Bridge does not store uploaded files after the response is delivered.
+</Note>
+
+## Elicitation: confirmation before risky actions
+
+When Bridge is about to take an action that cannot be easily undone — such as deleting a record, sending an email, or bulk-updating tasks — it pauses and shows a confirmation dialog before proceeding. You can review the details, fill in any required fields, and choose to confirm or cancel.
+
+This behavior is called **elicitation**. Bridge uses it to make sure you stay in control of destructive or high-impact actions.
+
+<Warning>
+  Declining an elicitation cancels the entire command, not just the risky step. If you need part of it to run, submit a new, more specific command.
+</Warning>
+
+## Session context
+
+Within a single browser session, Bridge remembers resolved IDs from earlier turns — things like your ClickUp workspace ID, a list you referenced by name, or a Slack channel you mentioned. You don't need to repeat that information on every message.
+
+```text multi-turn example
+You:     List the tasks in the 'Marketing' list
+Bridge:  [shows tasks]
+
+You:     Mark the top three as complete
+Bridge:  [knows which list without you having to say it again]
+```
+
+Session context is stored in your browser and cleared when you click **Clear conversation**.
+
+## Conversation history
+
+Your conversation history persists across page refreshes within the same browser session. To start fresh — and reset all session context — click **Clear conversation** in the top-right corner of the Command Center.
+
+<Info>
+  Conversation history is stored in your browser's local storage, not on Bridge's servers. Clearing your browser data will also clear your conversation.
+</Info>
+
+## Quick actions
+
+When your conversation is empty, Bridge shows a set of quick-action buttons based on the connectors you have connected. Clicking one pre-fills a starter command so you can get going without typing from scratch.
+
+## Related concepts
+
+<CardGroup cols={3}>
+  <Card title="Connectors" icon="plug" href="/concepts/connectors">
+    Connect your tools so Bridge has access to them.
+  </Card>
+  <Card title="Missions" icon="bookmark" href="/concepts/missions">
+    Save a successful command as a reusable workflow.
+  </Card>
+  <Card title="Plays" icon="book-open" href="/concepts/plays">
+    Load pre-built instruction sets for common tasks.
+  </Card>
+</CardGroup>
