@@ -96,7 +96,7 @@
   "logo": {
     "light": "/logo/arora-wordmark-light.svg",
     "dark": "/logo/arora-wordmark-dark.svg",
-    "href": "https://aroramcp.com"
+    "href": "/"
   },
   "navbar": {
     "links": [
