@@ -1,134 +1,158 @@
 ---
-title: Bridge documentation
-description: Bridge connects your AI to ClickUp, Gmail, Slack, Shopify, and more. Manage all your business tools in plain English — no workflows required.
-mode: frame
+title: "Arora Documentation"
+sidebarTitle: "Home"
+description: "Arora connects your AI to the tools your business runs on, and keeps the same context, rules, and memory wherever you work."
+icon: "house"
+mode: "custom"
 ---
 
-<div data-product-guide-index className="flex w-full flex-col gap-8 max-w-5xl mx-auto px-4 md:px-8 lg:px-12 py-10 lg:gap-14 lg:py-16">
-  <div className="flex max-w-[540px] flex-col gap-2 self-center text-center">
-    <h1 className="text-[30px] font-medium leading-9 tracking-tight text-gray-900 dark:text-gray-50">
-      Bridge documentation
-    </h1>
-    <p className="text-balance text-base leading-relaxed tracking-tight text-gray-600 dark:text-gray-400">
-      Connect Claude, Gemini, or any AI to your business tools. No workflows to build — just ask in plain English.
-    </p>
-  </div>
+export const ClaudeMark = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#D97757" className="h-12 w-12 transition-transform duration-300 group-hover:scale-110" aria-label="Claude">
+    <path d="m19.6 66.5 19.7-11 .3-1-.3-.5h-1l-3.3-.2-11.2-.3L14 53l-9.5-.5-2.4-.5L0 49l.2-1.5 2-1.3 2.9.2 6.3.5 9.5.6 6.9.4L38 49.1h1.6l.2-.7-.5-.4-.4-.4L29 41l-10.6-7-5.6-4.1-3-2-1.5-2-.6-4.2 2.7-3 3.7.3.9.2 3.7 2.9 8 6.1L37 36l1.5 1.2.6-.4.1-.3-.7-1.1L33 25l-6-10.4-2.7-4.3-.7-2.6c-.3-1-.4-2-.4-3l3-4.2L28 0l4.2.6L33.8 2l2.6 6 4.1 9.3L47 29.9l2 3.8 1 3.4.3 1h.7v-.5l.5-7.2 1-8.7 1-11.2.3-3.2 1.6-3.8 3-2L61 2.6l2 2.9-.3 1.8-1.1 7.7L59 27.1l-1.5 8.2h.9l1-1.1 4.1-5.4 6.9-8.6 3-3.5L77 13l2.3-1.8h4.3l3.1 4.7-1.4 4.9-4.4 5.6-3.7 4.7-5.3 7.1-3.2 5.7.3.4h.7l12-2.6 6.4-1.1 7.6-1.3 3.5 1.6.4 1.6-1.4 3.4-8.2 2-9.6 2-14.3 3.3-.2.1.2.3 6.4.6 2.8.2h6.8l12.6 1 3.3 2 1.9 2.7-.3 2-5.1 2.6-6.8-1.6-16-3.8-5.4-1.3h-.8v.4l4.6 4.5 8.3 7.5L89 80.1l.5 2.4-1.3 2-1.4-.2-9.2-7-3.6-3-8-6.8h-.5v.7l1.8 2.7 9.8 14.7.5 4.5-.7 1.4-2.6 1-2.7-.6-5.8-8-6-9-4.7-8.2-.5.4-2.9 30.2-1.3 1.5-3 1.2-2.5-2-1.4-3 1.4-6.2 1.6-8 1.3-6.4 1.2-7.9.7-2.6v-.2H49L43 72l-9 12.3-7.2 7.6-1.7.7-3-1.5.3-2.8L24 86l10-12.8 6-7.9 4-4.6-.1-.5h-.3L17.2 77.4l-4.7.6-2-2 .2-3 1-1 8-5.5Z" />
+  </svg>
+);
 
-  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-    <Card
-      title={<span className="product-guide-feature-card-title">Get started</span>}
-      icon="rocket"
-      href="/introduction"
-      className="product-guide-feature-card"
-      size={64}
-    >
-      <span className="product-guide-feature-card-description">Create your account and run your first AI command in minutes.</span>
-    </Card>
-
-    <a
-      href="/connectors/overview"
-      className="rounded-2xl flex flex-col gap-4 border bg-gray-50 p-4 outline-none shadow-sm shadow-gray-950/5 transition hover:border-primary hover:shadow-md dark:bg-gray-950 dark:shadow-black/20 dark:hover:border-primary"
-    >
-      <Icon icon="plug" color="rgb(var(--primary))" size={18} className="shrink-0" />
-      <div className="flex flex-col gap-1">
-        <span className="font-serif text-base font-medium text-gray-900 dark:text-gray-50">Connectors</span>
-        <span className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-          Connect ClickUp, Gmail, Slack, Shopify, and 10+ more business tools.
-        </span>
+export const ConnectCard = ({ img, logo, href, title, description, tag, kind }) => {
+  return (
+    <a href={href} className="group block">
+      <div className="flex flex-col gap-4 rounded-xl md:p-1">
+        <div className="w-full h-32 flex items-center justify-center overflow-hidden rounded-xl bg-gray-100 dark:bg-white/5">
+          {logo ? logo : (
+            <img
+              src={img}
+              alt={title}
+              loading="lazy"
+              className="h-12 w-auto transition-transform duration-300 group-hover:scale-110"
+            />
+          )}
+        </div>
+        <div className="flex flex-col gap-3 pb-2">
+          <h2 className="text-md font-medium text-gray-900 dark:text-gray-200 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors mb-[-8px]">
+            {title}
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400 text-sm font-medium">{description}</p>
+          <div className="flex gap-2 mt-2 mb-1">
+            <span className="bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-white rounded-lg px-2 py-1 text-sm font-medium">
+              {tag}
+            </span>
+            <span className="bg-primary-light dark:bg-primary-dark text-white rounded-lg px-2 py-1 text-sm font-medium">
+              {kind}
+            </span>
+          </div>
+        </div>
       </div>
     </a>
-    <a
-      href="/connect-your-ai"
-      className="rounded-2xl flex flex-col gap-4 border bg-gray-50 p-4 outline-none shadow-sm shadow-gray-950/5 transition hover:border-primary hover:shadow-md dark:bg-gray-950 dark:shadow-black/20 dark:hover:border-primary"
-    >
-      <Icon icon="cpu" color="rgb(var(--primary))" size={18} className="shrink-0" />
-      <div className="flex flex-col gap-1">
-        <span className="font-serif text-base font-medium text-gray-900 dark:text-gray-50">Connect your AI</span>
-        <span className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-          Add Bridge to Claude or Gemini via the Model Context Protocol (MCP).
+  );
+};
+
+<div className="px-5 divide-y divide-gray-100 dark:divide-white/10">
+  <div className="px-4 lg:px-10 py-14">
+    <div className="flex flex-col items-start w-full max-w-4xl text-left">
+      <span style={{ fontFamily: "Outfit, sans-serif", fontSize: "12px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#897EB9" }}>
+        Arora Docs
+      </span>
+
+      <h1 className="mt-4 text-[#110F1A] dark:text-white" style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: "clamp(40px, 6vw, 64px)", lineHeight: 1.1, letterSpacing: "-0.05em" }}>
+        Put your AI to work.<br />
+
+        <span style={{ backgroundImage: "linear-gradient(90deg, #6B5EA8, #D4A0BD, #7BC4C0, #E0D5C1)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+          In the tools you already use.
         </span>
+      </h1>
+
+      <p className="mt-4 mb-4 text-[#50477E] dark:text-[#C1C1C6]" style={{ fontFamily: "Inter, sans-serif", fontSize: "20px", fontWeight: 300, lineHeight: 1.7 }}>
+        Arora connects Claude, ChatGPT, and the rest of your AI to the apps your business runs on. Same context, same rules, same memory, wherever you work.
+      </p>
+
+      <div className="flex flex-row flex-wrap gap-4 mt-5">
+        <a href="/connect-your-ai">
+          <button type="button" className="px-5 font-medium text-sm rounded-full py-2 shadow-sm text-white dark:text-gray-900 bg-primary-dark dark:bg-primary-light hover:opacity-90">
+            Get started →
+          </button>
+        </a>
+
+        <a href="https://app.aroramcp.com">
+          <button type="button" className="px-5 font-medium text-sm rounded-full py-2 text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-white/10 hover:opacity-90">
+            Open Arora
+          </button>
+        </a>
       </div>
-    </a>
-  </div>
-
-  <hr className="border-0 border-t border-border" />
-
-  <div className="flex flex-col gap-4">
-    <h2 className="font-serif text-xl font-medium leading-normal text-gray-900 dark:text-gray-50">Common tasks</h2>
-
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      <a
-        href="/account/members"
-        className="rounded-2xl flex flex-col gap-4 border bg-gray-50 p-4 outline-none shadow-sm shadow-gray-950/5 transition hover:border-primary hover:shadow-md dark:bg-gray-950 dark:shadow-black/20 dark:hover:border-primary"
-      >
-        <Icon icon="users" color="rgb(var(--primary))" size={18} className="shrink-0" />
-        <div className="flex flex-col gap-1">
-          <span className="font-serif text-base font-medium text-gray-900 dark:text-gray-50">Manage your team</span>
-          <span className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-            Invite members, assign roles, and control access across your organization.
-          </span>
-        </div>
-      </a>
-      <a
-        href="/concepts/missions"
-        className="rounded-2xl flex flex-col gap-4 border bg-gray-50 p-4 outline-none shadow-sm shadow-gray-950/5 transition hover:border-primary hover:shadow-md dark:bg-gray-950 dark:shadow-black/20 dark:hover:border-primary"
-      >
-        <Icon icon="zap" color="rgb(var(--primary))" size={18} className="shrink-0" />
-        <div className="flex flex-col gap-1">
-          <span className="font-serif text-base font-medium text-gray-900 dark:text-gray-50">Save a Mission</span>
-          <span className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-            Turn a successful multi-step command into a reusable, one-click workflow.
-          </span>
-        </div>
-      </a>
-      <a
-        href="/concepts/plays"
-        className="rounded-2xl flex flex-col gap-4 border bg-gray-50 p-4 outline-none shadow-sm shadow-gray-950/5 transition hover:border-primary hover:shadow-md dark:bg-gray-950 dark:shadow-black/20 dark:hover:border-primary"
-      >
-        <Icon icon="book-open" color="rgb(var(--primary))" size={18} className="shrink-0" />
-        <div className="flex flex-col gap-1">
-          <span className="font-serif text-base font-medium text-gray-900 dark:text-gray-50">Browse the Plays Library</span>
-          <span className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-            Use pre-built instruction sets for common tasks like transcripts-to-tasks and client onboarding.
-          </span>
-        </div>
-      </a>
-      <a
-        href="/account/plans"
-        className="rounded-2xl flex flex-col gap-4 border bg-gray-50 p-4 outline-none shadow-sm shadow-gray-950/5 transition hover:border-primary hover:shadow-md dark:bg-gray-950 dark:shadow-black/20 dark:hover:border-primary"
-      >
-        <Icon icon="credit-card" color="rgb(var(--primary))" size={18} className="shrink-0" />
-        <div className="flex flex-col gap-1">
-          <span className="font-serif text-base font-medium text-gray-900 dark:text-gray-50">View plans & pricing</span>
-          <span className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-            Compare Free, Individual, Team, and Agency plans and upgrade when you're ready.
-          </span>
-        </div>
-      </a>
-      <a
-        href="/troubleshooting/faq"
-        className="rounded-2xl flex flex-col gap-4 border bg-gray-50 p-4 outline-none shadow-sm shadow-gray-950/5 transition hover:border-primary hover:shadow-md dark:bg-gray-950 dark:shadow-black/20 dark:hover:border-primary"
-      >
-        <Icon icon="circle-help" color="rgb(var(--primary))" size={18} className="shrink-0" />
-        <div className="flex flex-col gap-1">
-          <span className="font-serif text-base font-medium text-gray-900 dark:text-gray-50">FAQ & troubleshooting</span>
-          <span className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-            Find answers to common questions and fix connector or auth issues fast.
-          </span>
-        </div>
-      </a>
-      <a
-        href="/concepts/command-center"
-        className="rounded-2xl flex flex-col gap-4 border bg-gray-50 p-4 outline-none shadow-sm shadow-gray-950/5 transition hover:border-primary hover:shadow-md dark:bg-gray-950 dark:shadow-black/20 dark:hover:border-primary"
-      >
-        <Icon icon="terminal" color="rgb(var(--primary))" size={18} className="shrink-0" />
-        <div className="flex flex-col gap-1">
-          <span className="font-serif text-base font-medium text-gray-900 dark:text-gray-50">How the Command Center works</span>
-          <span className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-            Learn how Bridge translates your plain-English requests into tool actions.
-          </span>
-        </div>
-      </a>
     </div>
+  </div>
+
+  <div className="px-4 lg:px-10 py-14">
+    <h2 className="text-[#110F1A] dark:text-white" style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: "32px", lineHeight: 1.15, letterSpacing: "-0.01em" }}>
+      Connect your AI
+    </h2>
+
+    <p className="mt-3 mb-6 text-[#50477E] dark:text-[#C1C1C6]" style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 300, lineHeight: 1.7 }}>
+      One Arora connection. Every surface. Pick where you work and you'll be set up in a few minutes.
+    </p>
+
+    <CardGroup cols={2}>
+      <ConnectCard title="Claude" description="Add Arora as a connector in Claude on the web, desktop, or mobile." logo={<ClaudeMark />} href="/connect-your-ai#claude" tag="Web · Desktop" kind="Connector" />
+
+      <ConnectCard title="Claude Code" description="Bring your Arora memory, skills, and apps into the terminal." logo={<ClaudeMark />} href="/connect-your-ai#claude-code" tag="Terminal" kind="MCP server" />
+    </CardGroup>
+  </div>
+
+  <div className="px-4 lg:px-10 py-14">
+    <h2 className="text-[#110F1A] dark:text-white" style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: "32px", lineHeight: 1.15, letterSpacing: "-0.01em" }}>
+      What Arora gives your AI
+    </h2>
+
+    <p className="mt-3 mb-6 text-[#50477E] dark:text-[#C1C1C6]" style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 300, lineHeight: 1.7 }}>
+      Built-in tools that work in every conversation, before you connect a single app.
+    </p>
+
+    <CardGroup cols={3}>
+      <Card title="Memory" icon="brain" href="/tools/memory">
+        Save it once. Every future conversation starts with it.
+      </Card>
+
+      <Card title="Read the web" icon="globe" href="/tools/read-the-web">
+        The whole page, straight from the source. Not a summary.
+      </Card>
+
+      <Card title="Exact math" icon="calculator" href="/tools/math-and-charts">
+        Totals and averages done by the server, not guessed.
+      </Card>
+
+      <Card title="Workspace" icon="square-stack" href="/tools/workspace">
+        Big results, searched and read in pieces.
+      </Card>
+
+      <Card title="Skills" icon="book-open" href="/tools/skills">
+        Your playbooks, written once, used everywhere.
+      </Card>
+
+      <Card title="Plays" icon="zap" href="/tools/plays">
+        Standing rules that apply automatically.
+      </Card>
+    </CardGroup>
+  </div>
+
+  <div className="px-4 lg:px-10 py-14">
+    <h2 className="text-[#110F1A] dark:text-white" style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: "32px", lineHeight: 1.15, letterSpacing: "-0.01em" }}>
+      Resources
+    </h2>
+
+    <p className="mt-3 mb-6 text-[#50477E] dark:text-[#C1C1C6]" style={{ fontFamily: "Inter, sans-serif", fontSize: "18px", fontWeight: 300, lineHeight: 1.7 }}>
+      More from Arora.
+    </p>
+
+    <CardGroup cols={3}>
+      <Card title="Arora website" icon="globe" href="https://aroramcp.com">
+        Plans, pricing, and what Arora is built for.
+      </Card>
+
+      <Card title="Open Arora" icon="layout-dashboard" href="https://app.aroramcp.com">
+        Connect your apps and manage your account.
+      </Card>
+
+      <Card title="What is Arora" icon="sparkles" href="/what-is-arora">
+        How Arora works, and what "powered by Bridge" means.
+      </Card>
+    </CardGroup>
   </div>
 </div>
